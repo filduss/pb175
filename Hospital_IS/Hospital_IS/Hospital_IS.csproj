@@ -133,6 +133,12 @@
     <Compile Include="FormDoctor.Designer.cs">
       <DependentUpon>FormDoctor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormPacient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPacient.Designer.cs">
+      <DependentUpon>FormPacient.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

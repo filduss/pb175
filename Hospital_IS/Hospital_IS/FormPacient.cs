@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class FormDoctor : Form
+    public partial class FormPacient : Form
     {
         string connectionPassword = null;
-        public FormDoctor(string connectionPassword)
+        public FormPacient(string connectionPassword)
         {
-            this.connectionPassword = connectionPassword;
             InitializeComponent();
+            this.connectionPassword = connectionPassword;
         }
     }
 }

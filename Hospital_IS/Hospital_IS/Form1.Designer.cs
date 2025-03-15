@@ -41,7 +41,7 @@
             // buttonLogin
             // 
             this.buttonLogin.Location = new System.Drawing.Point(93, 230);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(197, 60);
             this.buttonLogin.TabIndex = 0;
@@ -53,7 +53,7 @@
             // 
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxEmail.Location = new System.Drawing.Point(93, 125);
-            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(197, 26);
             this.textBoxEmail.TabIndex = 1;
@@ -116,7 +116,8 @@
             this.labelCreateAccount.TabIndex = 7;
             this.labelCreateAccount.Text = "Nemám účet pacienta";
             this.labelCreateAccount.Click += new System.EventHandler(this.labelCreateAccount_Click);
-            this.labelCreateAccount.MouseHover += new System.EventHandler(this.labelCreateAccount_MouseHover);
+            this.labelCreateAccount.MouseEnter += new System.EventHandler(this.labelCreateAccount_MouseEnter);
+            this.labelCreateAccount.MouseLeave += new System.EventHandler(this.labelCreateAccount_MouseLeave);
             // 
             // Form1
             // 
@@ -131,7 +132,7 @@
             this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.buttonLogin);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Shown += new System.EventHandler(this.Form1_Shown);

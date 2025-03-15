@@ -42,25 +42,25 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(75, 51);
+            this.textBoxName.Location = new System.Drawing.Point(119, 61);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(100, 20);
             this.textBoxName.TabIndex = 0;
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(75, 244);
+            this.buttonCreate.Location = new System.Drawing.Point(119, 254);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(100, 23);
             this.buttonCreate.TabIndex = 1;
             this.buttonCreate.Text = "Vytvořit účet";
             this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.button1_Click);
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // labelUsername
             // 
             this.labelUsername.AutoSize = true;
-            this.labelUsername.Location = new System.Drawing.Point(75, 32);
+            this.labelUsername.Location = new System.Drawing.Point(119, 42);
             this.labelUsername.Name = "labelUsername";
             this.labelUsername.Size = new System.Drawing.Size(41, 13);
             this.labelUsername.TabIndex = 2;
@@ -69,7 +69,7 @@
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
-            this.labelEmail.Location = new System.Drawing.Point(75, 82);
+            this.labelEmail.Location = new System.Drawing.Point(119, 92);
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(35, 13);
             this.labelEmail.TabIndex = 4;
@@ -77,7 +77,7 @@
             // 
             // textBoxEmail
             // 
-            this.textBoxEmail.Location = new System.Drawing.Point(75, 101);
+            this.textBoxEmail.Location = new System.Drawing.Point(119, 111);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(100, 20);
             this.textBoxEmail.TabIndex = 3;
@@ -85,7 +85,7 @@
             // labelPassword
             // 
             this.labelPassword.AutoSize = true;
-            this.labelPassword.Location = new System.Drawing.Point(75, 134);
+            this.labelPassword.Location = new System.Drawing.Point(119, 144);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(37, 13);
             this.labelPassword.TabIndex = 6;
@@ -93,7 +93,7 @@
             // 
             // textBoxPassword
             // 
-            this.textBoxPassword.Location = new System.Drawing.Point(75, 153);
+            this.textBoxPassword.Location = new System.Drawing.Point(119, 163);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(100, 20);
@@ -102,7 +102,7 @@
             // labelRepeatPassword
             // 
             this.labelRepeatPassword.AutoSize = true;
-            this.labelRepeatPassword.Location = new System.Drawing.Point(75, 186);
+            this.labelRepeatPassword.Location = new System.Drawing.Point(119, 196);
             this.labelRepeatPassword.Name = "labelRepeatPassword";
             this.labelRepeatPassword.Size = new System.Drawing.Size(75, 13);
             this.labelRepeatPassword.TabIndex = 8;
@@ -110,7 +110,7 @@
             // 
             // textBoxRepeatPassword
             // 
-            this.textBoxRepeatPassword.Location = new System.Drawing.Point(75, 205);
+            this.textBoxRepeatPassword.Location = new System.Drawing.Point(119, 215);
             this.textBoxRepeatPassword.Name = "textBoxRepeatPassword";
             this.textBoxRepeatPassword.PasswordChar = '*';
             this.textBoxRepeatPassword.Size = new System.Drawing.Size(100, 20);
@@ -120,7 +120,7 @@
             // labelMatch
             // 
             this.labelMatch.AutoSize = true;
-            this.labelMatch.Location = new System.Drawing.Point(182, 211);
+            this.labelMatch.Location = new System.Drawing.Point(226, 221);
             this.labelMatch.Name = "labelMatch";
             this.labelMatch.Size = new System.Drawing.Size(0, 13);
             this.labelMatch.TabIndex = 9;
@@ -129,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 355);
+            this.ClientSize = new System.Drawing.Size(363, 361);
             this.Controls.Add(this.labelMatch);
             this.Controls.Add(this.labelRepeatPassword);
             this.Controls.Add(this.textBoxRepeatPassword);

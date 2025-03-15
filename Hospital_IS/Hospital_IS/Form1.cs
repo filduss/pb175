@@ -12,6 +12,8 @@ using System.Windows.Forms;
 using Azure.Identity;
 using Azure.Security.KeyVault.Secrets;
 using System.IdentityModel.Protocols.WSTrust;
+using System.Reflection.Emit;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WindowsFormsApp1
 {
@@ -39,7 +41,6 @@ namespace WindowsFormsApp1
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
-                MessageBox.Show(type);
                 string queryHash = $"SELECT PasswordHash FROM {type} WHERE Email LIKE '{userEmail}'";
                 string querySalt = $"SELECT Salt FROM {type} WHERE Email LIKE '{userEmail}'";
 
@@ -114,17 +115,29 @@ namespace WindowsFormsApp1
 
             if (VerifyPassword(password, hash, salt))
             {
-                
-                MessageBox.Show("SUCCESS");
+                this.Hide();
+                if (comboBoxRole.SelectedIndex == 0)
+                {
+                    FormDoctor doctor = new FormDoctor(connectionPassword);
+                    doctor.ShowDialog();
+                }
+                else if (comboBoxRole.SelectedIndex == 1)
+                {
+                    FormPacient pacient = new FormPacient(connectionPassword);
+                    pacient.ShowDialog();
+                }
+                this.Show();
             }
             else
             {
-                MessageBox.Show("FAILED");
+                textBoxPassword.Text = "";
+                MessageBox.Show("Špatné heslo, zkuste znovu");
             }
         }
 
         private async void Form1_Shown(object sender, EventArgs e)
         {
+            comboBoxRole.DropDownStyle = ComboBoxStyle.DropDownList;
             buttonLogin.Enabled = false;
             connectionPassword = await RetrieveSecret();
             buttonLogin.Enabled = true;
@@ -132,13 +145,23 @@ namespace WindowsFormsApp1
 
         private void labelCreateAccount_Click(object sender, EventArgs e)
         {
+            if (connectionPassword == null)
+            {
+                MessageBox.Show("Vyckejte na pripojeni k databazi");
+                return;
+            }
             FormCreateAccount createAccount = new FormCreateAccount(connectionPassword);
             createAccount.ShowDialog();
         }
 
-        private void labelCreateAccount_MouseHover(object sender, EventArgs e)
+        private void labelCreateAccount_MouseEnter(object sender, EventArgs e)
         {
-            // FINISH UNDERLINE
+            labelCreateAccount.Font = new Font(labelCreateAccount.Font, FontStyle.Underline | FontStyle.Italic);
+        }
+
+        private void labelCreateAccount_MouseLeave(object sender, EventArgs e)
+        {
+            labelCreateAccount.Font = new Font(labelCreateAccount.Font, FontStyle.Italic);
         }
     }
 }
