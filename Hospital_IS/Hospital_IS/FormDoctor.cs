@@ -14,24 +14,8 @@ namespace WindowsFormsApp1
     public partial class FormDoctor : Form
     {
         private string connectionPassword = null;
-        private List<PacientBasicInfo> Pacients = new List<PacientBasicInfo>();
-        class PacientBasicInfo
-        {
-            private int id;
-            private string name;
-            private string email;
-
-            public PacientBasicInfo(int id, string name, string email)
-            {
-                this.id = id;
-                this.name = name;
-                this.email = email;
-            }
-
-            public int Id { get { return id; } }
-            public string Name { get { return name; } }
-            public string Email { get { return email; } }
-        }
+        private List<PacientBasicInfo> pacients = new List<PacientBasicInfo>();
+        
         public FormDoctor(string connectionPassword)
         {
             this.connectionPassword = connectionPassword;
@@ -53,27 +37,20 @@ namespace WindowsFormsApp1
                         while (reader.Read())
                         {
                             PacientBasicInfo pacient = new PacientBasicInfo(reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
-                            Pacients.Add(pacient);
+                            pacients.Add(pacient);
                         }
                     }
 
                 }
-                foreach (var pacient in Pacients)
-                {
-                    listBoxPacients.Items.Add(pacient.Id + "\t" + pacient.Name);
-                }
+                listBoxPacients.DataSource = pacients;
+
             }
         }
 
-        private void buttonDelete_Click(object sender, EventArgs e)
+        private void buttonAddRecord_Click(object sender, EventArgs e)
         {
-            if (listBoxPacients.SelectedIndex == -1)
-            {
-                MessageBox.Show("Vyberte pacienta, kterého chcete smazat", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
-            }
-
-            MessageBox.Show(Pacients[listBoxPacients.SelectedIndex].Name + "\n"+ Pacients[listBoxPacients.SelectedIndex].Id + "\n" + Pacients[listBoxPacients.SelectedIndex].Email);
+            FormAddRecord addRecord = new FormAddRecord(connectionPassword, pacients[listBoxPacients.SelectedIndex].Id);
+            addRecord.Show();
         }
     }
 }
