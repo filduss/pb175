@@ -34,6 +34,13 @@ namespace WindowsFormsApp1
             }
         }
 
+        private bool IsValidDate(int day, int month, int year)
+        {
+            // Použitie DateTime.TryParse na validáciu dátumu
+            string dateString = $"{year}-{month}-{day}";
+            return DateTime.TryParse(dateString, out _);
+        }
+
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             if (labelMatch.Text != "" || textBoxPassword.Text == "" || textBoxRepeatPassword.Text == "")
@@ -45,6 +52,12 @@ namespace WindowsFormsApp1
             int day = int.Parse(comboBoxDay.SelectedItem.ToString());
             int month = int.Parse(comboBoxMonth.SelectedItem.ToString());
             int year = int.Parse(comboBoxYear.SelectedItem.ToString());
+
+            if (!IsValidDate(day, month, year))
+            {
+                MessageBox.Show("Neplatný dátum! Skontrolujte deň, mesiac a rok.");
+                return;
+            }
 
             DateTime dateOfBirth = new DateTime(year, month, day);
             string connectionString = string.Format("Server=tcp:pb175database.database.windows.net,1433;Initial Catalog=pb175database;Persist Security Info=False;User ID=pb175admin;Password= {0};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;", connectionPassword);
