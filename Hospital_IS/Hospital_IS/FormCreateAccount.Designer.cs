@@ -47,7 +47,7 @@
             // textBoxName
             // 
             this.textBoxName.Location = new System.Drawing.Point(141, 75);
-            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(182, 22);
             this.textBoxName.TabIndex = 0;
@@ -55,7 +55,7 @@
             // buttonCreate
             // 
             this.buttonCreate.Location = new System.Drawing.Point(168, 340);
-            this.buttonCreate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonCreate.Margin = new System.Windows.Forms.Padding(4);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(133, 28);
             this.buttonCreate.TabIndex = 1;
@@ -86,7 +86,7 @@
             // textBoxEmail
             // 
             this.textBoxEmail.Location = new System.Drawing.Point(141, 181);
-            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(182, 22);
             this.textBoxEmail.TabIndex = 3;
@@ -104,7 +104,7 @@
             // textBoxPassword
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(141, 236);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(182, 22);
@@ -123,7 +123,7 @@
             // textBoxRepeatPassword
             // 
             this.textBoxRepeatPassword.Location = new System.Drawing.Point(141, 292);
-            this.textBoxRepeatPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxRepeatPassword.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxRepeatPassword.Name = "textBoxRepeatPassword";
             this.textBoxRepeatPassword.PasswordChar = '*';
             this.textBoxRepeatPassword.Size = new System.Drawing.Size(182, 22);
@@ -141,8 +141,10 @@
             // 
             // comboBoxDay
             // 
+            this.comboBoxDay.DropDownHeight = 200;
             this.comboBoxDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDay.FormattingEnabled = true;
+            this.comboBoxDay.IntegralHeight = false;
             this.comboBoxDay.Location = new System.Drawing.Point(141, 125);
             this.comboBoxDay.MaxDropDownItems = 10;
             this.comboBoxDay.Name = "comboBoxDay";
@@ -151,8 +153,10 @@
             // 
             // comboBoxMonth
             // 
+            this.comboBoxMonth.DropDownHeight = 200;
             this.comboBoxMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMonth.FormattingEnabled = true;
+            this.comboBoxMonth.IntegralHeight = false;
             this.comboBoxMonth.ItemHeight = 16;
             this.comboBoxMonth.Location = new System.Drawing.Point(204, 125);
             this.comboBoxMonth.Name = "comboBoxMonth";
@@ -161,7 +165,9 @@
             // 
             // comboBoxYear
             // 
+            this.comboBoxYear.DropDownHeight = 200;
             this.comboBoxYear.FormattingEnabled = true;
+            this.comboBoxYear.IntegralHeight = false;
             this.comboBoxYear.Location = new System.Drawing.Point(249, 125);
             this.comboBoxYear.Name = "comboBoxYear";
             this.comboBoxYear.Size = new System.Drawing.Size(74, 24);
@@ -195,7 +201,7 @@
             this.Controls.Add(this.labelUsername);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.textBoxName);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormCreateAccount";
             this.Text = "FormCreateAccount";
             this.Load += new System.EventHandler(this.FormCreateAccount_Load);

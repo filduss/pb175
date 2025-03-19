@@ -36,7 +36,6 @@ namespace WindowsFormsApp1
 
         private bool IsValidDate(int day, int month, int year)
         {
-            // Použitie DateTime.TryParse na validáciu dátumu
             string dateString = $"{year}-{month}-{day}";
             return DateTime.TryParse(dateString, out _);
         }
