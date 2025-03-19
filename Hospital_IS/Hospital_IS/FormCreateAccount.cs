@@ -41,15 +41,21 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Heslo je povinne");
                 return;
             }
+
+            int day = int.Parse(comboBoxDay.SelectedItem.ToString());
+            int month = int.Parse(comboBoxMonth.SelectedItem.ToString());
+            int year = int.Parse(comboBoxYear.SelectedItem.ToString());
+
+            DateTime dateOfBirth = new DateTime(year, month, day);
             string connectionString = string.Format("Server=tcp:pb175database.database.windows.net,1433;Initial Catalog=pb175database;Persist Security Info=False;User ID=pb175admin;Password= {0};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;", connectionPassword);
-            InsertNewPacient(connectionString, textBoxPassword.Text, textBoxEmail.Text, textBoxName.Text);
+            InsertNewPacient(connectionString, textBoxPassword.Text, textBoxEmail.Text, textBoxName.Text, dateOfBirth);
         }
-        private static void InsertNewPacient(string connectionString, string password, string email, string username)
+        private static void InsertNewPacient(string connectionString, string password, string email, string username, DateTime dateOfBirth)
         {
 
             var (hash, salt) = HashPassword(password);
-            string sqlQuery = "INSERT INTO dbo.pacients (Username, PasswordHash, Salt, Email) " +
-                          "VALUES (@Username, @PasswordHash, @Salt, @Email)";
+            string sqlQuery = "INSERT INTO dbo.pacients (Username, PasswordHash, Salt, Email, DateOfBirth) " +
+                          "VALUES (@Username, @PasswordHash, @Salt, @Email, @DateOfBirth)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -61,6 +67,7 @@ namespace WindowsFormsApp1
                     command.Parameters.AddWithValue("@PasswordHash", hash);
                     command.Parameters.AddWithValue("@Salt", salt);
                     command.Parameters.AddWithValue("@Email", email);
+                    command.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
 
                     int rowsAffected = command.ExecuteNonQuery();
 
@@ -90,5 +97,26 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void FormCreateAccount_Load(object sender, EventArgs e)
+        {
+            for (int i = 1; i <= 31; i++)
+            {
+                comboBoxDay.Items.Add(i);
+            }
+
+            for (int i = 1; i <= 12; i++)
+            {
+                comboBoxMonth.Items.Add(i);
+            }
+
+            for (int i = 1900; i <= DateTime.Now.Year; i++)
+            {
+                comboBoxYear.Items.Add(i);
+            }
+
+            comboBoxDay.SelectedIndex = 0;
+            comboBoxMonth.SelectedIndex = 0;
+            comboBoxYear.SelectedIndex = comboBoxYear.Items.Count - 1;
+        }
     }
 }
