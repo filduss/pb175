@@ -109,9 +109,27 @@ namespace WindowsFormsApp1
             if (comboBoxRole.SelectedIndex == -1)
             {
                 MessageBox.Show("Vyberte prosím typ uživatele");
+                return;
             }
 
-            (string hash, string salt) = GetPasswordHashAndSalt(connectionPassword, userEmail, comboBoxRole.SelectedIndex);
+            if (userEmail == string.Empty || password == string.Empty)
+            {
+                MessageBox.Show("Email i heslo je povinne!");
+                return;
+            }
+
+            string hash = null;
+            string salt = null;
+
+            try
+            {
+                (hash, salt) = GetPasswordHashAndSalt(connectionPassword, userEmail, comboBoxRole.SelectedIndex);
+            }
+            catch
+            {
+                MessageBox.Show("Nespravné údaje");
+                return;
+            }
 
             if (VerifyPassword(password, hash, salt))
             {

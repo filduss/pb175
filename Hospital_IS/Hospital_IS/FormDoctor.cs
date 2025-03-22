@@ -43,14 +43,28 @@ namespace WindowsFormsApp1
 
                 }
                 listBoxPacients.DataSource = pacients;
-
+                listBoxPacients.DisplayMember = "Name";
             }
         }
 
         private void buttonAddRecord_Click(object sender, EventArgs e)
         {
+            if (listBoxPacients.SelectedIndex == -1)
+            {
+                MessageBox.Show("Prvni vyberte pacienta");
+            }
             FormAddRecord addRecord = new FormAddRecord(connectionPassword, pacients[listBoxPacients.SelectedIndex].Id);
             addRecord.Show();
+        }
+
+        private void buttonViewCard_Click(object sender, EventArgs e)
+        {
+            if (listBoxPacients.SelectedIndex == -1)
+            {
+                MessageBox.Show("Prvni vyberte pacienta");
+            }
+
+            // Show pacient card form
         }
     }
 }

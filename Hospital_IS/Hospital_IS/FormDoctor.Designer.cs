@@ -30,6 +30,7 @@
         {
             this.listBoxPacients = new System.Windows.Forms.ListBox();
             this.buttonAddRecord = new System.Windows.Forms.Button();
+            this.buttonViewCard = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listBoxPacients
@@ -50,11 +51,22 @@
             this.buttonAddRecord.UseVisualStyleBackColor = true;
             this.buttonAddRecord.Click += new System.EventHandler(this.buttonAddRecord_Click);
             // 
+            // buttonViewCard
+            // 
+            this.buttonViewCard.Location = new System.Drawing.Point(177, 412);
+            this.buttonViewCard.Name = "buttonViewCard";
+            this.buttonViewCard.Size = new System.Drawing.Size(126, 23);
+            this.buttonViewCard.TabIndex = 2;
+            this.buttonViewCard.Text = "Zobrazit kartu";
+            this.buttonViewCard.UseVisualStyleBackColor = true;
+            this.buttonViewCard.Click += new System.EventHandler(this.buttonViewCard_Click);
+            // 
             // FormDoctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonViewCard);
             this.Controls.Add(this.buttonAddRecord);
             this.Controls.Add(this.listBoxPacients);
             this.Name = "FormDoctor";
@@ -68,5 +80,6 @@
 
         private System.Windows.Forms.ListBox listBoxPacients;
         private System.Windows.Forms.Button buttonAddRecord;
+        private System.Windows.Forms.Button buttonViewCard;
     }
 }
