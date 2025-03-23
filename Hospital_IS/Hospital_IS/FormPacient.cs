@@ -13,10 +13,23 @@ namespace WindowsFormsApp1
     public partial class FormPacient : Form
     {
         string connectionPassword = null;
-        public FormPacient(string connectionPassword)
+        private int patientId;
+        public FormPacient(string connectionPassword, int patientId)
         {
             InitializeComponent();
             this.connectionPassword = connectionPassword;
+            this.patientId = patientId;
+        }
+
+        private void buttonMedicalRecords_Click(object sender, EventArgs e)
+        {
+            FormMedicalRecords records = new FormMedicalRecords(connectionPassword, patientId);
+            records.ShowDialog();
+        }
+
+        private void buttonAppointments_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

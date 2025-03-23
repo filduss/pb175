@@ -101,6 +101,38 @@ namespace WindowsFormsApp1
             return databasePassword;
         }
 
+        private static int GetUserId(string connectionPassword, string userEmail, int userType)
+        {
+            int userId = -1;
+            string connectionString = string.Format("Server=tcp:pb175database.database.windows.net,1433;Initial Catalog=pb175database;Persist Security Info=False;User ID=pb175admin;Password= {0};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;", connectionPassword);
+            string table = (userType == 0) ? "dbo.doctors" : "dbo.pacients";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = $"SELECT Id FROM {table} WHERE Email = @Email";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Email", userEmail);
+
+                    object result = command.ExecuteScalar();
+
+                    if (result != null)
+                    {
+                        userId = Convert.ToInt32(result);
+                    }
+                    else
+                    {
+                        throw new Exception("Používateľ s daným emailom neexistuje.");
+                    }
+                }
+            }
+
+            return userId;
+        }
+
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
@@ -141,7 +173,18 @@ namespace WindowsFormsApp1
                 }
                 else if (comboBoxRole.SelectedIndex == 1)
                 {
-                    FormPacient pacient = new FormPacient(connectionPassword);
+                    int userId;
+                    try
+                    {
+                        userId = GetUserId(connectionPassword, userEmail, comboBoxRole.SelectedIndex);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Nepodarilo sa získať ID používateľa: " + ex.Message);
+                        return;
+                    }
+
+                    FormPacient pacient = new FormPacient(connectionPassword, userId);
                     pacient.ShowDialog();
                 }
                 this.Show();
