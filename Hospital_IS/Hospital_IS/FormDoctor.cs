@@ -15,15 +15,19 @@ namespace WindowsFormsApp1
     {
         private string connectionPassword = null;
         private List<PacientBasicInfo> pacients = new List<PacientBasicInfo>();
-        
-        public FormDoctor(string connectionPassword)
+        private string username = null;
+        private int userId = -1;
+        public FormDoctor(string connectionPassword, string username, int userId)
         {
+            this.username = username;
+            this.userId = userId;
             this.connectionPassword = connectionPassword;
             InitializeComponent();
         }
 
         private void FormDoctor_Load(object sender, EventArgs e)
         {
+            labelDoctor.Text = username;
             string connectionString = string.Format("Server=tcp:pb175database.database.windows.net,1433;Initial Catalog=pb175database;Persist Security Info=False;User ID=pb175admin;Password= {0};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;", connectionPassword);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -40,7 +44,6 @@ namespace WindowsFormsApp1
                             pacients.Add(pacient);
                         }
                     }
-
                 }
                 listBoxPacients.DataSource = pacients;
                 listBoxPacients.DisplayMember = "Name";
@@ -53,7 +56,7 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show("Prvni vyberte pacienta");
             }
-            FormAddRecord addRecord = new FormAddRecord(connectionPassword, pacients[listBoxPacients.SelectedIndex].Id);
+            FormAddRecord addRecord = new FormAddRecord(connectionPassword, pacients[listBoxPacients.SelectedIndex].Id, pacients[listBoxPacients.SelectedIndex].Name, userId);
             addRecord.Show();
         }
 
@@ -64,7 +67,8 @@ namespace WindowsFormsApp1
                 MessageBox.Show("Prvni vyberte pacienta");
             }
 
-            // Show pacient card form
+            FormMedicalRecords medicalForm = new FormMedicalRecords(connectionPassword, pacients[listBoxPacients.SelectedIndex].Id);
+            medicalForm.Show();
         }
     }
 }

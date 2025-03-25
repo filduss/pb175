@@ -24,12 +24,13 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
         string connectionPassword = null;
-        private static (string hash, string salt) GetPasswordHashAndSalt(string connectionPassword, string userEmail, int userType)
+        private static (string hash, string salt, string username) GetInformation(string connectionPassword, string userEmail, int userType)
         {
             string passwordHash = string.Empty;
             string salt = string.Empty;
             string connectionString = string.Format("Server=tcp:pb175database.database.windows.net,1433;Initial Catalog=pb175database;Persist Security Info=False;User ID=pb175admin;Password= {0};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;", connectionPassword);
             string type = null;
+            string username = null;
             if (userType == 0)
             {
                 type = "dbo.doctors";
@@ -43,6 +44,7 @@ namespace WindowsFormsApp1
                 connection.Open();
                 string queryHash = $"SELECT PasswordHash FROM {type} WHERE Email LIKE '{userEmail}'";
                 string querySalt = $"SELECT Salt FROM {type} WHERE Email LIKE '{userEmail}'";
+                string queryUserName = $"SELECT Username FROM {type} WHERE Email LIKE '{userEmail}'";
 
                 string queryCorrectness = $"SELECT COUNT(1) FROM {type} WHERE Email LIKE '{userEmail}'";
 
@@ -72,8 +74,17 @@ namespace WindowsFormsApp1
                         salt = result.ToString();
                     }
                 }
+
+                using (SqlCommand command = new SqlCommand(queryUserName, connection))
+                {
+                    var result = command.ExecuteScalar();
+                    if (result != null)
+                    {
+                        username = result.ToString();
+                    }
+                }
             }
-            return (passwordHash, salt);
+            return (passwordHash, salt, username);
         }
 
         private static bool VerifyPassword(string password, string hash, string salt)
@@ -111,7 +122,8 @@ namespace WindowsFormsApp1
             {
                 connection.Open();
 
-                string query = $"SELECT Id FROM {table} WHERE Email = @Email";
+                string query = $"SELECT Id FROM {table} WHERE CAST(Email AS NVARCHAR(MAX)) = @Email";
+
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -152,10 +164,11 @@ namespace WindowsFormsApp1
 
             string hash = null;
             string salt = null;
+            string username = null;
 
             try
             {
-                (hash, salt) = GetPasswordHashAndSalt(connectionPassword, userEmail, comboBoxRole.SelectedIndex);
+                (hash, salt, username) = GetInformation(connectionPassword, userEmail, comboBoxRole.SelectedIndex);
             }
             catch
             {
@@ -168,7 +181,17 @@ namespace WindowsFormsApp1
                 this.Hide();
                 if (comboBoxRole.SelectedIndex == 0)
                 {
-                    FormDoctor doctor = new FormDoctor(connectionPassword);
+                    int userId = -1;
+                    try
+                    {
+                        userId = GetUserId(connectionPassword, userEmail, comboBoxRole.SelectedIndex);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Nepodarilo sa získať ID používateľa: " + ex.Message);
+                        return;
+                    }
+                    FormDoctor doctor = new FormDoctor(connectionPassword, username, userId);
                     doctor.ShowDialog();
                 }
                 else if (comboBoxRole.SelectedIndex == 1)
