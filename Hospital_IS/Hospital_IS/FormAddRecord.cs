@@ -115,13 +115,14 @@ namespace WindowsFormsApp1
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string query = "INSERT INTO health_records (DoctorId, PatientId, RecordText, RecordDate) VALUES (@DoctorId, @PatientId, @RecordText, @RecordDate)";
+                    string query = "INSERT INTO health_records (DoctorId, PatientId, RecordText, RecordDate, RecordType) VALUES (@DoctorId, @PatientId, @RecordText, @RecordDate, @RecordType)";
 
                     SqlCommand cmd = new SqlCommand(query, connection);
                     cmd.Parameters.AddWithValue("@DoctorId", doctorId);
                     cmd.Parameters.AddWithValue("@PatientId", pacientId);
                     cmd.Parameters.AddWithValue("@RecordText", textBoxDescription.Text);
                     cmd.Parameters.AddWithValue("@RecordDate", date);
+                    cmd.Parameters.AddWithValue("@RecordType", comboBoxExaminations.Text);
 
                     connection.Open();
                     cmd.ExecuteNonQuery();
@@ -132,9 +133,6 @@ namespace WindowsFormsApp1
             {
                 MessageBox.Show($"Přidání se nepodařilo z důvodu: \n{ex.Message}");
             }
-
-
-
         }
     }
 }
