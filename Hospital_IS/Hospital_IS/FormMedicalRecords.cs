@@ -22,11 +22,6 @@ namespace WindowsFormsApp1
             this.connectionPassword = connectionPassword;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private List<MedicalRecordBasicInfo> records = new List<MedicalRecordBasicInfo>();
 
         private void FormMedicalRecords_Load(object sender, EventArgs e)
@@ -39,7 +34,7 @@ namespace WindowsFormsApp1
             {
                 connection.Open();
 
-                string query = @"SELECT mr.Id, d.UserName AS DoctorName, mr.RecordDate, mr.RecordText
+                string query = @"SELECT mr.Id, d.UserName AS DoctorName, mr.RecordDate, mr.RecordText, mr.RecordType
                                 FROM dbo.health_records mr
                                 JOIN dbo.doctors d ON mr.DoctorId = d.Id
                                 WHERE mr.PatientId = @PatientId
@@ -57,9 +52,10 @@ namespace WindowsFormsApp1
                             string doctor = reader.GetString(1);
                             DateTime date = reader.GetDateTime(2);
                             string text = reader.GetString(3);
+                            string rec_type = reader.GetString(4);
 
                             string summary = $"{date.ToShortDateString()} – {doctor}";
-                            MedicalRecordBasicInfo record = new MedicalRecordBasicInfo(id, summary, text);
+                            MedicalRecordBasicInfo record = new MedicalRecordBasicInfo(id, summary, text, rec_type);
                             records.Add(record);
                         }
                     }
@@ -75,6 +71,7 @@ namespace WindowsFormsApp1
             if (listBoxRecords.SelectedItem is MedicalRecordBasicInfo selected)
             {
                 textBoxDetail.Text = selected.FullText;
+                textBoxRecType.Text = selected.RecType;
             }
         }
     }
