@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -79,9 +80,18 @@ namespace WindowsFormsApp1
 
             DateTime dateOfBirth = new DateTime(year, month, day);
             string connectionString = string.Format("Server=tcp:pb175database.database.windows.net,1433;Initial Catalog=pb175database;Persist Security Info=False;User ID=pb175admin;Password= {0};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;", connectionPassword);
-            InsertNewPacient(connectionString, textBoxPassword.Text, textBoxEmail.Text, textBoxName.Text, dateOfBirth);
+            bool success = InsertNewPacient(connectionString, textBoxPassword.Text, textBoxEmail.Text, textBoxName.Text, dateOfBirth);
+            if (success)
+            {
+                MessageBox.Show("Pacient created successfully!");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Failed to create new Pacient.");
+            }
         }
-        private static void InsertNewPacient(string connectionString, string password, string email, string username, DateTime dateOfBirth)
+        private static bool InsertNewPacient(string connectionString, string password, string email, string username, DateTime dateOfBirth)
         {
 
             var (hash, salt) = HashPassword(password);
@@ -102,14 +112,7 @@ namespace WindowsFormsApp1
 
                     int rowsAffected = command.ExecuteNonQuery();
 
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Pacient created successfully!");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to create new Pacient.");
-                    }
+                    return rowsAffected > 0;
                 }
             }
         }
