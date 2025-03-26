@@ -36,15 +36,34 @@ namespace WindowsFormsApp1
 
         private bool IsValidDate(int day, int month, int year)
         {
-            string dateString = $"{year}-{month}-{day}";
-            return DateTime.TryParse(dateString, out _);
+            try
+            {
+                DateTime date = new DateTime(year, month, day);
+                return date <= DateTime.Now;
+            }
+            catch
+            {
+                return false;
+            }
         }
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             if (labelMatch.Text != "" || textBoxPassword.Text == "" || textBoxRepeatPassword.Text == "")
             {
-                MessageBox.Show("Heslo je povinne");
+                MessageBox.Show("Heslo je povinné");
+                return;
+            }
+            
+            if (textBoxEmail.Text == "")
+            {
+                MessageBox.Show("Zadajte email");
+                return;
+            }
+
+            if (textBoxName.Text == "")
+            {
+                MessageBox.Show("Zadajte jméno");
                 return;
             }
 
