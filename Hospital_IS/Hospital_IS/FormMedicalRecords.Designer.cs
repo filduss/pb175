@@ -42,17 +42,19 @@
             this.listBoxRecords.Location = new System.Drawing.Point(12, 61);
             this.listBoxRecords.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listBoxRecords.Name = "listBoxRecords";
-            this.listBoxRecords.Size = new System.Drawing.Size(242, 479);
+            this.listBoxRecords.Size = new System.Drawing.Size(242, 504);
             this.listBoxRecords.TabIndex = 0;
             this.listBoxRecords.SelectedIndexChanged += new System.EventHandler(this.listBoxRecords_SelectedIndexChanged);
             // 
             // textBoxDetail
             // 
+            this.textBoxDetail.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxDetail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDetail.Location = new System.Drawing.Point(273, 96);
             this.textBoxDetail.Multiline = true;
             this.textBoxDetail.Name = "textBoxDetail";
-            this.textBoxDetail.Size = new System.Drawing.Size(509, 463);
+            this.textBoxDetail.ReadOnly = true;
+            this.textBoxDetail.Size = new System.Drawing.Size(509, 469);
             this.textBoxDetail.TabIndex = 1;
             // 
             // labelTitle
@@ -67,9 +69,11 @@
             // 
             // textBoxRecType
             // 
+            this.textBoxRecType.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxRecType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRecType.Location = new System.Drawing.Point(273, 61);
             this.textBoxRecType.Name = "textBoxRecType";
+            this.textBoxRecType.ReadOnly = true;
             this.textBoxRecType.Size = new System.Drawing.Size(509, 34);
             this.textBoxRecType.TabIndex = 3;
             // 
