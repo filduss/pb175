@@ -1,14 +1,17 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static WindowsFormsApp1.FormAddRecord;
 
@@ -70,14 +73,90 @@ namespace WindowsFormsApp1
             };
         public FormDoctor(string connectionPassword, string username, int userId)
         {
+            MessageBox.Show(Convert.ToString(userId));
             this.username = username;
             this.userId = userId;
             this.connectionPassword = connectionPassword;
             InitializeComponent();
         }
 
+        private void EventChanged(object sender, EventArgs e)
+        {
+            System.Windows.Forms.CheckBox clickedCheckBox = sender as System.Windows.Forms.CheckBox;
+            
+            if (clickedCheckBox.Checked)
+            {
+                MessageBox.Show(clickedCheckBox.Name);
+            }
+        }
+
         private void FormDoctor_Load(object sender, EventArgs e)
         {
+            checkBoxToday1Type.CheckedChanged += EventChanged;
+            checkBoxToday2Type.CheckedChanged += EventChanged;
+            checkBoxToday3Type.CheckedChanged += EventChanged;
+            checkBoxToday4Type.CheckedChanged += EventChanged;
+            checkBoxToday5Type.CheckedChanged += EventChanged;
+            // IMPLEMENT SECOND EVENT CLICK
+
+
+
+            Queue<Appointment> queueToday1 = new Queue<Appointment>();
+            Queue<Appointment> queueToday2 = new Queue<Appointment>();
+            Queue<Appointment> queueToday3 = new Queue<Appointment>();
+            Queue<Appointment> queueToday4 = new Queue<Appointment>();
+            Queue<Appointment> queueToday5 = new Queue<Appointment>();
+            var appointmentQueues = new List<Queue<Appointment>>
+            {
+                queueToday1, queueToday2, queueToday3, queueToday4, queueToday5
+            };
+
+
+            string connectionString = string.Format("Server=tcp:pb175database.database.windows.net,1433;Initial Catalog=pb175database;Persist Security Info=False;User ID=pb175admin;Password= {0};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;", connectionPassword);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                List<Appointment> appointments = new List<Appointment>();
+                string query = $"SELECT Id, appointment_date, examination_type, patient_id FROM dbo.appointments WHERE doctor_id = {userId}";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Appointment appointment = new Appointment(reader.GetDateTime(1), reader.GetString(2), reader.GetInt32(3));
+                            appointments.Add(appointment);                            
+                        }
+                    }
+                    for (int i = 0; i < 5; i++)
+                    {
+                        Queue<Appointment> currentQueue = appointmentQueues[i];
+                        DateTime target = DateTime.Today.AddDays(i); // IMLEMENT SKIPPING SATURDAY, SUNDAY
+
+                        foreach (Appointment elem in appointments)
+                        {
+                            Debug.WriteLine($"{elem.date.Day.ToString()}, {target.Day}");
+                            if (elem.date.Day == target.Day)
+                            {
+                                // IMPLEMENT ENSURE ORDERED BY TIME
+                                currentQueue.Enqueue(elem);
+                            }
+                        }
+                    }
+                }
+                
+            }
+
+            for (int i = 0; i < 5; i ++)
+            {
+                Queue<Appointment> queuel = appointmentQueues[i];
+                Debug.WriteLine($"------ {queuel.Count}, its: {i} th queue");
+                foreach (var elem in queuel)
+                {
+                    Debug.WriteLine(elem.type);
+                }
+            }
+
             panelDisplay.Visible = true;
             panelDisplay.BringToFront();
             panelCreate.SendToBack();
@@ -85,7 +164,6 @@ namespace WindowsFormsApp1
             comboBoxType.DisplayMember = "Name";
 
             labelDoctor.Text = username;
-            string connectionString = string.Format("Server=tcp:pb175database.database.windows.net,1433;Initial Catalog=pb175database;Persist Security Info=False;User ID=pb175admin;Password= {0};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;", connectionPassword);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -207,5 +285,18 @@ namespace WindowsFormsApp1
             comboBoxTimePicker.SelectedIndex = -1;
             labelChosenPatient.Text = "ŽÁDNÝ";
         }
+    }
+    class Appointment
+    {
+        public DateTime date;
+        public string type;
+        public int patient_id;
+        public Appointment(DateTime date, string type, int patient_id)
+        {
+            this.date = date;
+            this.type = type;
+            this.patient_id = patient_id;
+        }
+
     }
 }
