@@ -71,6 +71,8 @@ namespace WindowsFormsApp1
                 new Examination("Urologická vyšetření", "Cystoskopie"),
                 new Examination("Urologická vyšetření", "PSA test (prostata)")
             };
+        private Dictionary<System.Windows.Forms.CheckBox, Panel> groupMap;
+
         public FormDoctor(string connectionPassword, string username, int userId)
         {
             MessageBox.Show(Convert.ToString(userId));
@@ -78,16 +80,30 @@ namespace WindowsFormsApp1
             this.userId = userId;
             this.connectionPassword = connectionPassword;
             InitializeComponent();
+
+
+            groupMap = new Dictionary<System.Windows.Forms.CheckBox, Panel>
+            {
+                { checkBoxToday1Type, panelToday1 },
+                { checkBoxToday2Type, panelToday2 },
+                { checkBoxToday3Type, panelToday3 },
+                { checkBoxToday4Type, panelToday4 },
+                { checkBoxToday5Type, panelToday5 }
+            };
         }
 
         private void EventChanged(object sender, EventArgs e)
         {
             System.Windows.Forms.CheckBox clickedCheckBox = sender as System.Windows.Forms.CheckBox;
-            
-            if (clickedCheckBox.Checked)
+
+            Panel relatedPanel = groupMap[clickedCheckBox]; // finish group map
+            foreach (Control control in panelToday1Next.Controls)
             {
-                MessageBox.Show(clickedCheckBox.Name);
+                Debug.WriteLine(control.Name);
             }
+            //if (clickedCheckBox.Checked)
+            //{
+            //}
         }
 
         private void FormDoctor_Load(object sender, EventArgs e)
@@ -97,7 +113,6 @@ namespace WindowsFormsApp1
             checkBoxToday3Type.CheckedChanged += EventChanged;
             checkBoxToday4Type.CheckedChanged += EventChanged;
             checkBoxToday5Type.CheckedChanged += EventChanged;
-            // IMPLEMENT SECOND EVENT CLICK
 
 
 
@@ -117,7 +132,7 @@ namespace WindowsFormsApp1
             {
                 connection.Open();
                 List<Appointment> appointments = new List<Appointment>();
-                string query = $"SELECT Id, appointment_date, examination_type, patient_id FROM dbo.appointments WHERE doctor_id = {userId}";
+                string query = $"SELECT Id, appointment_date, examination_type, patient_id FROM dbo.appointments WHERE doctor_id = {userId} ORDER BY appointment_date ASC";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -128,19 +143,34 @@ namespace WindowsFormsApp1
                             appointments.Add(appointment);                            
                         }
                     }
+
+
+                    List<Label> dateLabels = new List<Label>
+                    {
+                        labelDate1, labelDate2, labelDate3, labelDate4, labelDate5
+                    };
+
+
+                    DateTime target = DateTime.Today;
                     for (int i = 0; i < 5; i++)
                     {
                         Queue<Appointment> currentQueue = appointmentQueues[i];
-                        DateTime target = DateTime.Today.AddDays(i); // IMLEMENT SKIPPING SATURDAY, SUNDAY
-
+                        target = target.AddDays(1);
+                        dateLabels[i].Text = $"{target.Day}.{target.Month}.{target.Year}";
+                        Debug.WriteLine(dateLabels[i].Text);
+                        Debug.WriteLine(target.DayOfWeek.ToString());
                         foreach (Appointment elem in appointments)
                         {
-                            Debug.WriteLine($"{elem.date.Day.ToString()}, {target.Day}");
+                            // Debug.WriteLine($"{elem.date.Day.ToString()}, {target.Day}");
                             if (elem.date.Day == target.Day)
                             {
-                                // IMPLEMENT ENSURE ORDERED BY TIME
                                 currentQueue.Enqueue(elem);
                             }
+                        }
+                        
+                        if (target.DayOfWeek == DayOfWeek.Friday)
+                        {
+                            target = target.AddDays(2);
                         }
                     }
                 }

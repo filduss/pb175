@@ -170,9 +170,10 @@ namespace WindowsFormsApp1
             {
                 (hash, salt, username) = GetInformation(connectionPassword, userEmail, comboBoxRole.SelectedIndex);
             }
-            catch
+            catch (Exception ea)
             {
-                MessageBox.Show("Nespravné údaje");
+                MessageBox.Show(ea.Message);
+                //MessageBox.Show("Nespravné údaje");
                 return;
             }
 
