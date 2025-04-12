@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,6 +73,8 @@ namespace WindowsFormsApp1
                 new Examination("Urologická vyšetření", "PSA test (prostata)")
             };
         private Dictionary<System.Windows.Forms.CheckBox, Panel> groupMap;
+        private List<System.Windows.Forms.Label> leftLabels;
+
 
         public FormDoctor(string connectionPassword, string username, int userId)
         {
@@ -90,6 +93,11 @@ namespace WindowsFormsApp1
                 { checkBoxToday4Type, panelToday4 },
                 { checkBoxToday5Type, panelToday5 }
             };
+
+            leftLabels = new List<System.Windows.Forms.Label>
+            {
+                labelAppLeft1, labelAppLeft2, labelAppLeft3, labelAppLeft4, labelAppLeft5
+            };
         }
 
         private void EventChanged(object sender, EventArgs e)
@@ -99,11 +107,37 @@ namespace WindowsFormsApp1
             Panel relatedPanel = groupMap[clickedCheckBox]; // finish group map
             foreach (Control control in panelToday1Next.Controls)
             {
-                Debug.WriteLine(control.Name);
+                Debug.WriteLine(control.Name); // FINISH NOT CHANGING LABELS FOR SOME REASON NOW
+                // IT DID WORK BEFORE...
+                if (control is System.Windows.Forms.Label)
+                {
+                    string controlTag = Convert.ToString(control.Tag);
+
+                    if (controlTag == "TodayName")
+                    {
+                        control.Text = "NAME CHANGED";
+                    }
+                    else if (controlTag == "TodayTime")
+                    {
+                        control.Text = "TIME CHANGED";
+                    }
+                }
+                else if (control is System.Windows.Forms.CheckBox)
+                {
+                    control.Text = "TYPE CHANGED";
+                }
             }
-            //if (clickedCheckBox.Checked)
-            //{
-            //}
+
+            List<System.Windows.Forms.Label> leftLabels = new List<System.Windows.Forms.Label>
+            {
+                labelAppLeft1, labelAppLeft2, labelAppLeft3, labelAppLeft4, labelAppLeft5
+            };
+
+            // 14. char is number garanted
+            string name = Convert.ToString(clickedCheckBox.Name);
+            int choice = int.Parse(name[13].ToString());
+            MessageBox.Show(Convert.ToString(choice));
+
         }
 
         private void FormDoctor_Load(object sender, EventArgs e)
@@ -145,7 +179,7 @@ namespace WindowsFormsApp1
                     }
 
 
-                    List<Label> dateLabels = new List<Label>
+                    List<System.Windows.Forms.Label> dateLabels = new List<System.Windows.Forms.Label>
                     {
                         labelDate1, labelDate2, labelDate3, labelDate4, labelDate5
                     };

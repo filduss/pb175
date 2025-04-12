@@ -315,7 +315,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 17);
             this.label3.TabIndex = 2;
-            this.label3.Tag = "Today1";
+            this.label3.Tag = "Today1Name";
             this.label3.Text = "Milos Hnilo";
             // 
             // label2
@@ -327,7 +327,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 17);
             this.label2.TabIndex = 1;
-            this.label2.Tag = "Today1";
+            this.label2.Tag = "Today1Time";
             this.label2.Text = "12:30";
             // 
             // checkBoxToday1Type
