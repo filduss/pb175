@@ -315,7 +315,7 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 17);
             this.label3.TabIndex = 2;
-            this.label3.Tag = "Today1Name";
+            this.label3.Tag = "TodayName";
             this.label3.Text = "Milos Hnilo";
             // 
             // label2
@@ -327,7 +327,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 17);
             this.label2.TabIndex = 1;
-            this.label2.Tag = "Today1Time";
+            this.label2.Tag = "TodayTime";
             this.label2.Text = "12:30";
             // 
             // checkBoxToday1Type
@@ -410,7 +410,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 17);
             this.label12.TabIndex = 2;
-            this.label12.Tag = "Today2";
+            this.label12.Tag = "TodayName";
             this.label12.Text = "Milos Hnilo";
             // 
             // label13
@@ -422,7 +422,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(44, 17);
             this.label13.TabIndex = 1;
-            this.label13.Tag = "Today2";
+            this.label13.Tag = "TodayTime";
             this.label13.Text = "12:30";
             // 
             // checkBoxToday2Type
@@ -505,7 +505,7 @@
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(76, 17);
             this.label19.TabIndex = 2;
-            this.label19.Tag = "Today3";
+            this.label19.Tag = "TodayName";
             this.label19.Text = "Milos Hnilo";
             // 
             // label20
@@ -517,7 +517,7 @@
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(44, 17);
             this.label20.TabIndex = 1;
-            this.label20.Tag = "Today3";
+            this.label20.Tag = "TodayTime";
             this.label20.Text = "12:30";
             // 
             // checkBoxToday3Type
@@ -600,7 +600,7 @@
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(76, 17);
             this.label26.TabIndex = 2;
-            this.label26.Tag = "Today4";
+            this.label26.Tag = "TodayName";
             this.label26.Text = "Milos Hnilo";
             // 
             // label27
@@ -612,7 +612,7 @@
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(44, 17);
             this.label27.TabIndex = 1;
-            this.label27.Tag = "Today4";
+            this.label27.Tag = "TodayTime";
             this.label27.Text = "12:30";
             // 
             // checkBoxToday4Type
@@ -695,7 +695,7 @@
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(76, 17);
             this.label33.TabIndex = 2;
-            this.label33.Tag = "Today5";
+            this.label33.Tag = "TodayName";
             this.label33.Text = "Milos Hnilo";
             // 
             // label34
@@ -707,7 +707,7 @@
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(44, 17);
             this.label34.TabIndex = 1;
-            this.label34.Tag = "Today5";
+            this.label34.Tag = "TodayTime";
             this.label34.Text = "12:30";
             // 
             // checkBoxToday5Type

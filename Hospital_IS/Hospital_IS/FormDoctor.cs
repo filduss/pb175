@@ -74,6 +74,13 @@ namespace WindowsFormsApp1
             };
         private Dictionary<System.Windows.Forms.CheckBox, Panel> groupMap;
         private List<System.Windows.Forms.Label> leftLabels;
+        private Queue<Appointment> queueToday1 = new Queue<Appointment>();
+        private Queue<Appointment> queueToday2 = new Queue<Appointment>();
+        private Queue<Appointment> queueToday3 = new Queue<Appointment>();
+        private Queue<Appointment> queueToday4 = new Queue<Appointment>();
+        private Queue<Appointment> queueToday5 = new Queue<Appointment>();
+        private List<Queue<Appointment>> appointmentQueues;
+        private List<Appointment> newAppointments = new List<Appointment>();
 
 
         public FormDoctor(string connectionPassword, string username, int userId)
@@ -87,11 +94,11 @@ namespace WindowsFormsApp1
 
             groupMap = new Dictionary<System.Windows.Forms.CheckBox, Panel>
             {
-                { checkBoxToday1Type, panelToday1 },
-                { checkBoxToday2Type, panelToday2 },
-                { checkBoxToday3Type, panelToday3 },
-                { checkBoxToday4Type, panelToday4 },
-                { checkBoxToday5Type, panelToday5 }
+                { checkBoxToday1Type, panelToday1Next },
+                { checkBoxToday2Type, panelToday2Next },
+                { checkBoxToday3Type, panelToday3Next },
+                { checkBoxToday4Type, panelToday4Next },
+                { checkBoxToday5Type, panelToday5Next }
             };
 
             leftLabels = new List<System.Windows.Forms.Label>
@@ -100,68 +107,144 @@ namespace WindowsFormsApp1
             };
         }
 
+        private void deleteAppointment(Appointment appointment)
+        {
+            string deleteQuery = @"
+                DELETE FROM dbo.appointments 
+                WHERE 
+                    appointment_date = @Date AND 
+                    examination_type = @Type AND 
+                    patient_id = @PatientId AND 
+                    doctor_id = @DoctorId";
+            string connectionString = string.Format("Server=tcp:pb175database.database.windows.net,1433;Initial Catalog=pb175database;Persist Security Info=False;User ID=pb175admin;Password= {0};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;", connectionPassword);
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connection))
+                {
+                    deleteCommand.Parameters.AddWithValue("@Date", appointment.date);
+                    deleteCommand.Parameters.AddWithValue("@Type", appointment.type);
+                    deleteCommand.Parameters.AddWithValue("@PatientId", appointment.patient_id);
+                    deleteCommand.Parameters.AddWithValue("@DoctorId", userId);
+
+                    int rowsAffected = deleteCommand.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        Console.WriteLine("Appointment deleted successfully.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("No appointment found to delete.");
+                    }
+                }
+            }
+
+        }
+
         private void EventChanged(object sender, EventArgs e)
         {
             System.Windows.Forms.CheckBox clickedCheckBox = sender as System.Windows.Forms.CheckBox;
-
-            Panel relatedPanel = groupMap[clickedCheckBox]; // finish group map
-            foreach (Control control in panelToday1Next.Controls)
+            if (clickedCheckBox.Checked)
             {
-                Debug.WriteLine(control.Name); // FINISH NOT CHANGING LABELS FOR SOME REASON NOW
-                // IT DID WORK BEFORE...
-                if (control is System.Windows.Forms.Label)
-                {
-                    string controlTag = Convert.ToString(control.Tag);
-
-                    if (controlTag == "TodayName")
-                    {
-                        control.Text = "NAME CHANGED";
-                    }
-                    else if (controlTag == "TodayTime")
-                    {
-                        control.Text = "TIME CHANGED";
-                    }
-                }
-                else if (control is System.Windows.Forms.CheckBox)
-                {
-                    control.Text = "TYPE CHANGED";
-                }
+                return;
             }
+            Debug.WriteLine(clickedCheckBox.Name);
+            Panel relatedPanel = groupMap[clickedCheckBox];
+
+            // 14. char is number garanted
+            string name = Convert.ToString(clickedCheckBox.Name);
+            int choice = int.Parse(name[13].ToString());
+            choice--;
+
+            Debug.WriteLine(appointmentQueues[choice].Count);
+            // DEQUING SHOWED ONE, BUT NEED TO DISPLAY THE ONE BEHIND IT...
+            Appointment newDisplayAppointment = appointmentQueues[choice].Dequeue();
+            changeText(newDisplayAppointment, relatedPanel);
+            deleteAppointment(newDisplayAppointment);
+            
 
             List<System.Windows.Forms.Label> leftLabels = new List<System.Windows.Forms.Label>
             {
                 labelAppLeft1, labelAppLeft2, labelAppLeft3, labelAppLeft4, labelAppLeft5
             };
 
-            // 14. char is number garanted
-            string name = Convert.ToString(clickedCheckBox.Name);
-            int choice = int.Parse(name[13].ToString());
             MessageBox.Show(Convert.ToString(choice));
+            clickedCheckBox.Checked = false;
 
+        }
+
+        private void changeText(Appointment appointment, Panel relatedPanel)
+        {
+            string patientName = "ERROR";
+            Debug.WriteLine($"CHANGE TEXT {pacients.Count}");
+            for (int i = 0; i < pacients.Count; i++)
+            {
+                Debug.WriteLine($"{pacients[i].Id}, {appointment.patient_id}");
+                if (pacients[i].Id == appointment.patient_id)
+                {
+                    patientName = pacients[i].Name;
+                    break;
+                }
+            }
+
+            Debug.WriteLine($"{appointment.patient_id} + {appointment.type} :)");
+            foreach (Control control in relatedPanel.Controls)
+            {
+                if (control is System.Windows.Forms.Label)
+                {
+                    string controlTag = Convert.ToString(control.Tag);
+
+                    if (controlTag == "TodayName")
+                    {
+                        control.Text = patientName;
+                    }
+                    else if (controlTag == "TodayTime")
+                    {
+                        control.Text = appointment.date.ToString();
+                    }
+                }
+                else if (control is System.Windows.Forms.CheckBox)
+                {
+                    control.Text = appointment.type;
+                }
+            }
         }
 
         private void FormDoctor_Load(object sender, EventArgs e)
         {
+            string connectionString = string.Format("Server=tcp:pb175database.database.windows.net,1433;Initial Catalog=pb175database;Persist Security Info=False;User ID=pb175admin;Password= {0};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;", connectionPassword);
             checkBoxToday1Type.CheckedChanged += EventChanged;
             checkBoxToday2Type.CheckedChanged += EventChanged;
             checkBoxToday3Type.CheckedChanged += EventChanged;
             checkBoxToday4Type.CheckedChanged += EventChanged;
             checkBoxToday5Type.CheckedChanged += EventChanged;
 
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+                
+                string query = $"SELECT Id, UserName, Email FROM dbo.pacients";
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            PacientBasicInfo pacient = new PacientBasicInfo(reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
+                            pacients.Add(pacient);
+                        }
+                    }
+                }
+                listBoxPacients.DataSource = pacients;
+                listBoxPacients.DisplayMember = "Name";
+            }
 
-
-            Queue<Appointment> queueToday1 = new Queue<Appointment>();
-            Queue<Appointment> queueToday2 = new Queue<Appointment>();
-            Queue<Appointment> queueToday3 = new Queue<Appointment>();
-            Queue<Appointment> queueToday4 = new Queue<Appointment>();
-            Queue<Appointment> queueToday5 = new Queue<Appointment>();
-            var appointmentQueues = new List<Queue<Appointment>>
+            appointmentQueues = new List<Queue<Appointment>>
             {
                 queueToday1, queueToday2, queueToday3, queueToday4, queueToday5
             };
 
 
-            string connectionString = string.Format("Server=tcp:pb175database.database.windows.net,1433;Initial Catalog=pb175database;Persist Security Info=False;User ID=pb175admin;Password= {0};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;", connectionPassword);
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
@@ -185,32 +268,13 @@ namespace WindowsFormsApp1
                     };
 
 
-                    DateTime target = DateTime.Today;
-                    for (int i = 0; i < 5; i++)
-                    {
-                        Queue<Appointment> currentQueue = appointmentQueues[i];
-                        target = target.AddDays(1);
-                        dateLabels[i].Text = $"{target.Day}.{target.Month}.{target.Year}";
-                        Debug.WriteLine(dateLabels[i].Text);
-                        Debug.WriteLine(target.DayOfWeek.ToString());
-                        foreach (Appointment elem in appointments)
-                        {
-                            // Debug.WriteLine($"{elem.date.Day.ToString()}, {target.Day}");
-                            if (elem.date.Day == target.Day)
-                            {
-                                currentQueue.Enqueue(elem);
-                            }
-                        }
-                        
-                        if (target.DayOfWeek == DayOfWeek.Friday)
-                        {
-                            target = target.AddDays(2);
-                        }
-                    }
+                    enqueueAppointments(appointments);
                 }
                 
             }
 
+
+            //DEBUG PRINTS
             for (int i = 0; i < 5; i ++)
             {
                 Queue<Appointment> queuel = appointmentQueues[i];
@@ -228,25 +292,6 @@ namespace WindowsFormsApp1
             comboBoxType.DisplayMember = "Name";
 
             labelDoctor.Text = username;
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                connection.Open();
-                
-                string query = $"SELECT Id, UserName, Email FROM dbo.pacients";
-                using (SqlCommand command = new SqlCommand(query, connection))
-                {
-                    using (SqlDataReader reader = command.ExecuteReader())
-                    {
-                        while (reader.Read())
-                        {
-                            PacientBasicInfo pacient = new PacientBasicInfo(reader.GetInt32(0), reader.GetString(1), reader.GetString(2));
-                            pacients.Add(pacient);
-                        }
-                    }
-                }
-                listBoxPacients.DataSource = pacients;
-                listBoxPacients.DisplayMember = "Name";
-            }
 
             comboBoxTimePicker.DropDownStyle = ComboBoxStyle.DropDownList;
 
@@ -298,6 +343,55 @@ namespace WindowsFormsApp1
                 panelDisplay.BringToFront();
                 panelCreate.SendToBack();
                 buttonCreateAppointment.Text = "Vytvořit Schůzku";
+                enqueueAppointments(newAppointments);
+                newAppointments.Clear();
+                //DEBUG PRINTS
+                for (int i = 0; i < 5; i++)
+                {
+                    Queue<Appointment> queuel = appointmentQueues[i];
+                    Debug.WriteLine($"------ {queuel.Count}, its: {i} th queue");
+                    foreach (var elem in queuel)
+                    {
+                        Debug.WriteLine(elem.type);
+                    }
+                }
+            }
+        }
+
+        private void enqueueAppointments(List<Appointment> appointments)
+        {
+            List<System.Windows.Forms.Label> dateLabels = new List<System.Windows.Forms.Label>
+            {
+                labelDate1, labelDate2, labelDate3, labelDate4, labelDate5
+            };
+
+            List<System.Windows.Forms.CheckBox> checkBoxes = new List<System.Windows.Forms.CheckBox>{ checkBoxToday1Type, checkBoxToday2Type, checkBoxToday3Type, checkBoxToday4Type, checkBoxToday5Type};
+
+            DateTime target = DateTime.Today;
+            for (int i = 0; i < 5; i++)
+            {
+                Queue<Appointment> currentQueue = appointmentQueues[i];
+                target = target.AddDays(1);
+                dateLabels[i].Text = $"{target.Day}.{target.Month}.{target.Year}";
+                //Debug.WriteLine(dateLabels[i].Text);
+                //Debug.WriteLine(target.DayOfWeek.ToString());
+                foreach (Appointment elem in appointments)
+                {
+                    // Debug.WriteLine($"{elem.date.Day.ToString()}, {target.Day}");
+                    if (elem.date.Day == target.Day)
+                    {
+                        if (currentQueue.Count == 0)
+                        {
+                            changeText(elem, groupMap[checkBoxes[i]]);//brooooooooo
+                        }
+                        currentQueue.Enqueue(elem);
+                    }
+                }
+
+                if (target.DayOfWeek == DayOfWeek.Friday)
+                {
+                    target = target.AddDays(2);
+                }
             }
         }
 
@@ -344,6 +438,8 @@ namespace WindowsFormsApp1
                     command.ExecuteNonQuery();
                 }
             }
+            Appointment appointment = new Appointment(finDate, comboBoxType.Text, pacients[listBoxPacients.SelectedIndex].Id);
+            newAppointments.Add(appointment);
             MessageBox.Show("Schůzka úspěšně vytvořena", "Úspěch", MessageBoxButtons.OK, MessageBoxIcon.Information);
             comboBoxType.SelectedIndex = -1;
             comboBoxTimePicker.SelectedIndex = -1;
