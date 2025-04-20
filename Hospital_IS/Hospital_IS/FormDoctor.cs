@@ -74,15 +74,14 @@ namespace WindowsFormsApp1
             };
         private Dictionary<System.Windows.Forms.CheckBox, Panel> groupMap;
         private List<System.Windows.Forms.Label> leftLabels;
-        private Queue<Appointment> queueToday1 = new Queue<Appointment>();
-        private Queue<Appointment> queueToday2 = new Queue<Appointment>();
-        private Queue<Appointment> queueToday3 = new Queue<Appointment>();
-        private Queue<Appointment> queueToday4 = new Queue<Appointment>();
-        private Queue<Appointment> queueToday5 = new Queue<Appointment>();
-        private List<Queue<Appointment>> appointmentQueues;
+        private List<Appointment> queueToday1 = new List<Appointment>();
+        private List<Appointment> queueToday2 = new List<Appointment>();
+        private List<Appointment> queueToday3 = new List<Appointment>();
+        private List<Appointment> queueToday4 = new List<Appointment>();
+        private List<Appointment> queueToday5 = new List<Appointment>();
+        private List<List<Appointment>> appointmentQueues;
         private List<Appointment> newAppointments = new List<Appointment>();
-
-
+        List<System.Windows.Forms.Label> dateLabels = new List<System.Windows.Forms.Label>();
         public FormDoctor(string connectionPassword, string username, int userId)
         {
             MessageBox.Show(Convert.ToString(userId));
@@ -144,7 +143,7 @@ namespace WindowsFormsApp1
         private void EventChanged(object sender, EventArgs e)
         {
             System.Windows.Forms.CheckBox clickedCheckBox = sender as System.Windows.Forms.CheckBox;
-            if (clickedCheckBox.Checked)
+            if (!clickedCheckBox.Checked)
             {
                 return;
             }
@@ -158,28 +157,53 @@ namespace WindowsFormsApp1
 
             Debug.WriteLine(appointmentQueues[choice].Count);
             // DEQUING SHOWED ONE, BUT NEED TO DISPLAY THE ONE BEHIND IT...
-            Appointment newDisplayAppointment = appointmentQueues[choice].Dequeue();
-            changeText(newDisplayAppointment, relatedPanel);
-            deleteAppointment(newDisplayAppointment);
-            
+
+            clickedCheckBox.Checked = false;
+
+            if (appointmentQueues[choice].Count == 0)
+            {
+                return;
+            }
+
+            //DEBUG PRINTS
+            for (int i = 0; i < 5; i++)
+            {
+                List<Appointment> queuel = appointmentQueues[i];
+                Debug.WriteLine($"--**-- {queuel.Count}, its: {i} th queue");
+                foreach (var elem in queuel)
+                {
+                    Debug.WriteLine(elem.type);
+                }
+            }
+
+            deleteAppointment(appointmentQueues[choice][0]);
+            appointmentQueues[choice].RemoveAt(0);
+
+            if (appointmentQueues[choice].Count == 0)
+            {
+                Appointment empty = new Appointment(DateTime.Today, "", -1);
+                changeText(empty, relatedPanel);
+            }
+            else
+            {
+                Appointment newDisplayAppointment = appointmentQueues[choice][0];
+                changeText(newDisplayAppointment, relatedPanel);
+            }
 
             List<System.Windows.Forms.Label> leftLabels = new List<System.Windows.Forms.Label>
             {
                 labelAppLeft1, labelAppLeft2, labelAppLeft3, labelAppLeft4, labelAppLeft5
             };
 
-            MessageBox.Show(Convert.ToString(choice));
-            clickedCheckBox.Checked = false;
+            leftLabels[choice].Text = appointmentQueues[choice].Count.ToString();
 
         }
 
         private void changeText(Appointment appointment, Panel relatedPanel)
         {
-            string patientName = "ERROR";
-            Debug.WriteLine($"CHANGE TEXT {pacients.Count}");
+            string patientName = "";
             for (int i = 0; i < pacients.Count; i++)
             {
-                Debug.WriteLine($"{pacients[i].Id}, {appointment.patient_id}");
                 if (pacients[i].Id == appointment.patient_id)
                 {
                     patientName = pacients[i].Name;
@@ -188,6 +212,11 @@ namespace WindowsFormsApp1
             }
 
             Debug.WriteLine($"{appointment.patient_id} + {appointment.type} :)");
+            string appointmentDate = appointment.date.ToString();
+            if (appointment.patient_id == -1)
+            {
+                appointmentDate = "";
+            }
             foreach (Control control in relatedPanel.Controls)
             {
                 if (control is System.Windows.Forms.Label)
@@ -200,7 +229,7 @@ namespace WindowsFormsApp1
                     }
                     else if (controlTag == "TodayTime")
                     {
-                        control.Text = appointment.date.ToString();
+                        control.Text = appointmentDate;
                     }
                 }
                 else if (control is System.Windows.Forms.CheckBox)
@@ -239,11 +268,15 @@ namespace WindowsFormsApp1
                 listBoxPacients.DisplayMember = "Name";
             }
 
-            appointmentQueues = new List<Queue<Appointment>>
+            appointmentQueues = new List<List<Appointment>>
             {
                 queueToday1, queueToday2, queueToday3, queueToday4, queueToday5
             };
 
+            dateLabels = new List<System.Windows.Forms.Label>
+            {
+                labelDate1, labelDate2, labelDate3, labelDate4, labelDate5
+            };
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -260,29 +293,9 @@ namespace WindowsFormsApp1
                             appointments.Add(appointment);                            
                         }
                     }
-
-
-                    List<System.Windows.Forms.Label> dateLabels = new List<System.Windows.Forms.Label>
-                    {
-                        labelDate1, labelDate2, labelDate3, labelDate4, labelDate5
-                    };
-
-
                     enqueueAppointments(appointments);
                 }
                 
-            }
-
-
-            //DEBUG PRINTS
-            for (int i = 0; i < 5; i ++)
-            {
-                Queue<Appointment> queuel = appointmentQueues[i];
-                Debug.WriteLine($"------ {queuel.Count}, its: {i} th queue");
-                foreach (var elem in queuel)
-                {
-                    Debug.WriteLine(elem.type);
-                }
             }
 
             panelDisplay.Visible = true;
@@ -302,6 +315,16 @@ namespace WindowsFormsApp1
             {
                 comboBoxTimePicker.Items.Add(startTime.ToString("HH:mm"));
                 startTime = startTime.AddMinutes(30);
+            }
+
+            List<System.Windows.Forms.Label> leftLabels = new List<System.Windows.Forms.Label>
+            {
+                labelAppLeft1, labelAppLeft2, labelAppLeft3, labelAppLeft4, labelAppLeft5
+            };
+
+            for (int i = 0; i < 5; i++)
+            {
+                leftLabels[i].Text = appointmentQueues[i].Count.ToString();
             }
 
             comboBoxTimePicker.SelectedIndex = 0;
@@ -345,32 +368,23 @@ namespace WindowsFormsApp1
                 buttonCreateAppointment.Text = "Vytvořit Schůzku";
                 enqueueAppointments(newAppointments);
                 newAppointments.Clear();
-                //DEBUG PRINTS
                 for (int i = 0; i < 5; i++)
                 {
-                    Queue<Appointment> queuel = appointmentQueues[i];
-                    Debug.WriteLine($"------ {queuel.Count}, its: {i} th queue");
-                    foreach (var elem in queuel)
-                    {
-                        Debug.WriteLine(elem.type);
-                    }
+                    leftLabels[i].Text = appointmentQueues[i].Count.ToString();
                 }
             }
         }
 
         private void enqueueAppointments(List<Appointment> appointments)
         {
-            List<System.Windows.Forms.Label> dateLabels = new List<System.Windows.Forms.Label>
-            {
-                labelDate1, labelDate2, labelDate3, labelDate4, labelDate5
-            };
+
 
             List<System.Windows.Forms.CheckBox> checkBoxes = new List<System.Windows.Forms.CheckBox>{ checkBoxToday1Type, checkBoxToday2Type, checkBoxToday3Type, checkBoxToday4Type, checkBoxToday5Type};
 
             DateTime target = DateTime.Today;
             for (int i = 0; i < 5; i++)
             {
-                Queue<Appointment> currentQueue = appointmentQueues[i];
+                List<Appointment> currentQueue = appointmentQueues[i];
                 target = target.AddDays(1);
                 dateLabels[i].Text = $"{target.Day}.{target.Month}.{target.Year}";
                 //Debug.WriteLine(dateLabels[i].Text);
@@ -382,9 +396,9 @@ namespace WindowsFormsApp1
                     {
                         if (currentQueue.Count == 0)
                         {
-                            changeText(elem, groupMap[checkBoxes[i]]);//brooooooooo
+                            changeText(elem, groupMap[checkBoxes[i]]);
                         }
-                        currentQueue.Enqueue(elem);
+                        currentQueue.Add(elem);
                     }
                 }
 

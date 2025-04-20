@@ -313,10 +313,9 @@
             this.label3.Location = new System.Drawing.Point(2, 39);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(76, 17);
+            this.label3.Size = new System.Drawing.Size(0, 17);
             this.label3.TabIndex = 2;
             this.label3.Tag = "TodayName";
-            this.label3.Text = "Milos Hnilo";
             // 
             // label2
             // 
@@ -325,10 +324,9 @@
             this.label2.Location = new System.Drawing.Point(-1, 23);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 17);
+            this.label2.Size = new System.Drawing.Size(0, 17);
             this.label2.TabIndex = 1;
             this.label2.Tag = "TodayTime";
-            this.label2.Text = "12:30";
             // 
             // checkBoxToday1Type
             // 
@@ -336,10 +334,9 @@
             this.checkBoxToday1Type.Location = new System.Drawing.Point(2, 6);
             this.checkBoxToday1Type.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxToday1Type.Name = "checkBoxToday1Type";
-            this.checkBoxToday1Type.Size = new System.Drawing.Size(116, 17);
+            this.checkBoxToday1Type.Size = new System.Drawing.Size(15, 14);
             this.checkBoxToday1Type.TabIndex = 0;
             this.checkBoxToday1Type.Tag = "Today1";
-            this.checkBoxToday1Type.Text = "aabbaabbaabbaab";
             this.checkBoxToday1Type.UseVisualStyleBackColor = true;
             // 
             // labelDate1
@@ -408,10 +405,9 @@
             this.label12.Location = new System.Drawing.Point(2, 39);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 17);
+            this.label12.Size = new System.Drawing.Size(0, 17);
             this.label12.TabIndex = 2;
             this.label12.Tag = "TodayName";
-            this.label12.Text = "Milos Hnilo";
             // 
             // label13
             // 
@@ -420,10 +416,9 @@
             this.label13.Location = new System.Drawing.Point(-1, 23);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(44, 17);
+            this.label13.Size = new System.Drawing.Size(0, 17);
             this.label13.TabIndex = 1;
             this.label13.Tag = "TodayTime";
-            this.label13.Text = "12:30";
             // 
             // checkBoxToday2Type
             // 
@@ -431,10 +426,9 @@
             this.checkBoxToday2Type.Location = new System.Drawing.Point(2, 6);
             this.checkBoxToday2Type.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxToday2Type.Name = "checkBoxToday2Type";
-            this.checkBoxToday2Type.Size = new System.Drawing.Size(116, 17);
+            this.checkBoxToday2Type.Size = new System.Drawing.Size(15, 14);
             this.checkBoxToday2Type.TabIndex = 0;
             this.checkBoxToday2Type.Tag = "Today2";
-            this.checkBoxToday2Type.Text = "aabbaabbaabbaab";
             this.checkBoxToday2Type.UseVisualStyleBackColor = true;
             // 
             // labelDate2
@@ -503,10 +497,9 @@
             this.label19.Location = new System.Drawing.Point(2, 39);
             this.label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(76, 17);
+            this.label19.Size = new System.Drawing.Size(0, 17);
             this.label19.TabIndex = 2;
             this.label19.Tag = "TodayName";
-            this.label19.Text = "Milos Hnilo";
             // 
             // label20
             // 
@@ -515,10 +508,9 @@
             this.label20.Location = new System.Drawing.Point(-1, 23);
             this.label20.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(44, 17);
+            this.label20.Size = new System.Drawing.Size(0, 17);
             this.label20.TabIndex = 1;
             this.label20.Tag = "TodayTime";
-            this.label20.Text = "12:30";
             // 
             // checkBoxToday3Type
             // 
@@ -526,10 +518,9 @@
             this.checkBoxToday3Type.Location = new System.Drawing.Point(2, 6);
             this.checkBoxToday3Type.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxToday3Type.Name = "checkBoxToday3Type";
-            this.checkBoxToday3Type.Size = new System.Drawing.Size(116, 17);
+            this.checkBoxToday3Type.Size = new System.Drawing.Size(15, 14);
             this.checkBoxToday3Type.TabIndex = 0;
             this.checkBoxToday3Type.Tag = "Today3";
-            this.checkBoxToday3Type.Text = "aabbaabbaabbaab";
             this.checkBoxToday3Type.UseVisualStyleBackColor = true;
             // 
             // labelDate3
@@ -598,10 +589,9 @@
             this.label26.Location = new System.Drawing.Point(2, 39);
             this.label26.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(76, 17);
+            this.label26.Size = new System.Drawing.Size(0, 17);
             this.label26.TabIndex = 2;
             this.label26.Tag = "TodayName";
-            this.label26.Text = "Milos Hnilo";
             // 
             // label27
             // 
@@ -610,10 +600,9 @@
             this.label27.Location = new System.Drawing.Point(-1, 23);
             this.label27.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(44, 17);
+            this.label27.Size = new System.Drawing.Size(0, 17);
             this.label27.TabIndex = 1;
             this.label27.Tag = "TodayTime";
-            this.label27.Text = "12:30";
             // 
             // checkBoxToday4Type
             // 
@@ -621,10 +610,9 @@
             this.checkBoxToday4Type.Location = new System.Drawing.Point(2, 6);
             this.checkBoxToday4Type.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxToday4Type.Name = "checkBoxToday4Type";
-            this.checkBoxToday4Type.Size = new System.Drawing.Size(116, 17);
+            this.checkBoxToday4Type.Size = new System.Drawing.Size(15, 14);
             this.checkBoxToday4Type.TabIndex = 0;
             this.checkBoxToday4Type.Tag = "Today4";
-            this.checkBoxToday4Type.Text = "aabbaabbaabbaab";
             this.checkBoxToday4Type.UseVisualStyleBackColor = true;
             // 
             // labelDate4
@@ -693,10 +681,9 @@
             this.label33.Location = new System.Drawing.Point(2, 39);
             this.label33.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(76, 17);
+            this.label33.Size = new System.Drawing.Size(0, 17);
             this.label33.TabIndex = 2;
             this.label33.Tag = "TodayName";
-            this.label33.Text = "Milos Hnilo";
             // 
             // label34
             // 
@@ -705,10 +692,9 @@
             this.label34.Location = new System.Drawing.Point(-1, 23);
             this.label34.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(44, 17);
+            this.label34.Size = new System.Drawing.Size(0, 17);
             this.label34.TabIndex = 1;
             this.label34.Tag = "TodayTime";
-            this.label34.Text = "12:30";
             // 
             // checkBoxToday5Type
             // 
@@ -716,10 +702,9 @@
             this.checkBoxToday5Type.Location = new System.Drawing.Point(2, 6);
             this.checkBoxToday5Type.Margin = new System.Windows.Forms.Padding(2);
             this.checkBoxToday5Type.Name = "checkBoxToday5Type";
-            this.checkBoxToday5Type.Size = new System.Drawing.Size(116, 17);
+            this.checkBoxToday5Type.Size = new System.Drawing.Size(15, 14);
             this.checkBoxToday5Type.TabIndex = 0;
             this.checkBoxToday5Type.Tag = "Today5";
-            this.checkBoxToday5Type.Text = "aabbaabbaabbaab";
             this.checkBoxToday5Type.UseVisualStyleBackColor = true;
             // 
             // labelDate5
