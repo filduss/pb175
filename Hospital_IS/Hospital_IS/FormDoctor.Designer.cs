@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDoctor));
             this.listBoxPacients = new System.Windows.Forms.ListBox();
             this.buttonAddRecord = new System.Windows.Forms.Button();
             this.buttonViewCard = new System.Windows.Forms.Button();
@@ -731,9 +732,10 @@
             this.Controls.Add(this.buttonViewCard);
             this.Controls.Add(this.buttonAddRecord);
             this.Controls.Add(this.listBoxPacients);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormDoctor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormDoctor";
+            this.Text = "Informační systém KnPO";
             this.Load += new System.EventHandler(this.FormDoctor_Load);
             this.panelCreate.ResumeLayout(false);
             this.panelCreate.PerformLayout();

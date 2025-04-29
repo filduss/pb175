@@ -84,7 +84,6 @@ namespace WindowsFormsApp1
         List<System.Windows.Forms.Label> dateLabels = new List<System.Windows.Forms.Label>();
         public FormDoctor(string connectionPassword, string username, int userId)
         {
-            MessageBox.Show(Convert.ToString(userId));
             this.username = username;
             this.userId = userId;
             this.connectionPassword = connectionPassword;
@@ -156,7 +155,6 @@ namespace WindowsFormsApp1
             choice--;
 
             Debug.WriteLine(appointmentQueues[choice].Count);
-            // DEQUING SHOWED ONE, BUT NEED TO DISPLAY THE ONE BEHIND IT...
 
             clickedCheckBox.Checked = false;
 
@@ -387,11 +385,8 @@ namespace WindowsFormsApp1
                 List<Appointment> currentQueue = appointmentQueues[i];
                 target = target.AddDays(1);
                 dateLabels[i].Text = $"{target.Day}.{target.Month}.{target.Year}";
-                //Debug.WriteLine(dateLabels[i].Text);
-                //Debug.WriteLine(target.DayOfWeek.ToString());
                 foreach (Appointment elem in appointments)
                 {
-                    // Debug.WriteLine($"{elem.date.Day.ToString()}, {target.Day}");
                     if (elem.date.Day == target.Day)
                     {
                         if (currentQueue.Count == 0)

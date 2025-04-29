@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAddRecord));
             this.monthCalendar = new System.Windows.Forms.MonthCalendar();
             this.comboBoxExaminations = new System.Windows.Forms.ComboBox();
             this.labelExaminationType = new System.Windows.Forms.Label();
@@ -120,8 +121,9 @@
             this.Controls.Add(this.labelExaminationType);
             this.Controls.Add(this.comboBoxExaminations);
             this.Controls.Add(this.monthCalendar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormAddRecord";
-            this.Text = "FormAddRecord";
+            this.Text = "Informační systém KnPO";
             this.Load += new System.EventHandler(this.FormAddRecord_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

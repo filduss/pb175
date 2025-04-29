@@ -28,36 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.buttonLogin = new System.Windows.Forms.Button();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.labelEmail = new System.Windows.Forms.Label();
             this.labelPassword = new System.Windows.Forms.Label();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.comboBoxRole = new System.Windows.Forms.ComboBox();
             this.labelRole = new System.Windows.Forms.Label();
             this.labelCreateAccount = new System.Windows.Forms.Label();
+            this.textBoxEmail = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // buttonLogin
             // 
             this.buttonLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogin.Location = new System.Drawing.Point(93, 240);
-            this.buttonLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonLogin.Margin = new System.Windows.Forms.Padding(2);
             this.buttonLogin.Name = "buttonLogin";
             this.buttonLogin.Size = new System.Drawing.Size(197, 60);
             this.buttonLogin.TabIndex = 0;
             this.buttonLogin.Text = "Potvrdit";
             this.buttonLogin.UseVisualStyleBackColor = true;
             this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
-            // 
-            // textBoxEmail
-            // 
-            this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.textBoxEmail.Location = new System.Drawing.Point(93, 125);
-            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(198, 24);
-            this.textBoxEmail.TabIndex = 1;
             // 
             // labelEmail
             // 
@@ -83,7 +75,7 @@
             // 
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.textBoxPassword.Location = new System.Drawing.Point(93, 191);
-            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(198, 26);
@@ -114,7 +106,6 @@
             // labelCreateAccount
             // 
             this.labelCreateAccount.AutoSize = true;
-            this.labelCreateAccount.BackColor = System.Drawing.SystemColors.Window;
             this.labelCreateAccount.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelCreateAccount.Location = new System.Drawing.Point(142, 310);
             this.labelCreateAccount.Name = "labelCreateAccount";
@@ -125,8 +116,18 @@
             this.labelCreateAccount.MouseEnter += new System.EventHandler(this.labelCreateAccount_MouseEnter);
             this.labelCreateAccount.MouseLeave += new System.EventHandler(this.labelCreateAccount_MouseLeave);
             // 
+            // textBoxEmail
+            // 
+            this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textBoxEmail.Location = new System.Drawing.Point(93, 125);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(2);
+            this.textBoxEmail.Name = "textBoxEmail";
+            this.textBoxEmail.Size = new System.Drawing.Size(198, 24);
+            this.textBoxEmail.TabIndex = 1;
+            // 
             // Form1
             // 
+            this.AcceptButton = this.buttonLogin;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(394, 361);
@@ -138,10 +139,11 @@
             this.Controls.Add(this.labelEmail);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.buttonLogin);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Informační systém KnPO";
             this.Shown += new System.EventHandler(this.Form1_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -151,13 +153,13 @@
         #endregion
 
         private System.Windows.Forms.Button buttonLogin;
-        private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.TextBox textBoxPassword;
         private System.Windows.Forms.ComboBox comboBoxRole;
         private System.Windows.Forms.Label labelRole;
         private System.Windows.Forms.Label labelCreateAccount;
+        private System.Windows.Forms.TextBox textBoxEmail;
     }
 }
 
