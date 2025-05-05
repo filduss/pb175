@@ -29,7 +29,8 @@ namespace WindowsFormsApp1
 
         private void buttonAppointments_Click(object sender, EventArgs e)
         {
-
+            FormDisplayAppointments appointments = new FormDisplayAppointments(connectionPassword, patientId);
+            appointments.ShowDialog();
         }
     }
 }
