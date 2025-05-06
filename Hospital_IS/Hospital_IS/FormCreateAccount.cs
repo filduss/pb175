@@ -101,6 +101,19 @@ namespace WindowsFormsApp1
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
+                string checkQuery = "SELECT COUNT(*) FROM dbo.pacients WHERE Email = @Email";
+
+                using (SqlCommand checkCommand = new SqlCommand(checkQuery, connection))
+                {
+                    checkCommand.Parameters.AddWithValue("@Email", email);
+                    int count = (int)checkCommand.ExecuteScalar();
+
+                    if (count > 0)
+                    {
+                        MessageBox.Show("Tento e-mail je již zaregistrovaný. Zvolte prosím jiný, nebo přejděte k přihlášení.");
+                        return false;
+                    }
+                }
 
                 using (SqlCommand command = new SqlCommand(sqlQuery, connection))
                 {
