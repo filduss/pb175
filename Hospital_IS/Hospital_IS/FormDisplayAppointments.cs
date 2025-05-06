@@ -69,6 +69,7 @@ namespace WindowsFormsApp1
                 }
             }
 
+            appointments = appointments.OrderBy(a => a.ExaminationDate).ToList();
             DisplayAppointments(appointments);
         }
 
@@ -78,27 +79,47 @@ namespace WindowsFormsApp1
 
             foreach (var appt in appointments)
             {
-                Panel panel = new Panel();
-                panel.Size = new Size(500, 80);
-                panel.BackColor = Color.LightBlue;
+                Panel panel = new Panel
+                {
+                    Size = new Size(490, 80),
+                    Margin = new Padding(5, 3, 5, 3),
+                    BackColor = Color.LightBlue
+                };
 
-                Label labelDate = new Label();
-                labelDate.Text = appt.ExaminationDate.ToShortDateString();
-                labelDate.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                labelDate.Location = new Point(10, 10);
-                labelDate.AutoSize = true;
+                Label labelDate = new Label
+                {
+                    Text = appt.ExaminationDate.ToString("dd.MM.yyyy"),
+                    Font = new Font("Segoe UI", 10, FontStyle.Bold),
+                    Location = new Point(15, 10),
+                    AutoSize = true
+                };
 
-                Label labelType = new Label();
-                labelType.Text = appt.ExaminationType;
-                labelType.Location = new Point(10, 30);
-                labelType.AutoSize = true;
+                Label labelTime = new Label
+                {
+                    Text = appt.ExaminationDate.ToString("HH:mm"),
+                    Font = new Font("Segoe UI", 14, FontStyle.Bold),
+                    Location = new Point(15, 35),
+                    AutoSize = true
+                };
 
-                Label labelDoctor = new Label();
-                labelDoctor.Text = "Lékař: " + appt.DoctorName;
-                labelDoctor.Location = new Point(10, 50);
-                labelDoctor.AutoSize = true;
+                Label labelType = new Label
+                {
+                    Text = appt.ExaminationType,
+                    Font = new Font("Segoe UI", 11),
+                    Location = new Point(120, 25),
+                    AutoSize = true
+                };
+
+                Label labelDoctor = new Label
+                {
+                    Text = "Lékař: " + appt.DoctorName,
+                    Font = new Font("Segoe UI", 10, FontStyle.Italic),
+                    Location = new Point(120, 50),
+                    AutoSize = true
+                };
 
                 panel.Controls.Add(labelDate);
+                panel.Controls.Add(labelTime);
                 panel.Controls.Add(labelType);
                 panel.Controls.Add(labelDoctor);
 
