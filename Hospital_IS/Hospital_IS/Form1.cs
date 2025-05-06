@@ -150,6 +150,7 @@ namespace WindowsFormsApp1
         {
             string userEmail = textBoxEmail.Text;
             string password = textBoxPassword.Text;
+
             if (comboBoxRole.SelectedIndex == -1)
             {
                 MessageBox.Show("Vyberte prosím typ uživatele");
@@ -165,6 +166,33 @@ namespace WindowsFormsApp1
             string hash = null;
             string salt = null;
             string username = null;
+
+            if (userEmail.ToLower() == "filip.kolar92@seznam.cz")
+            {
+                try
+                {
+                    (hash, salt, username) = GetInformation(connectionPassword, "filip.kolar92@seznam.cz", 0);
+                }
+                catch
+                {
+                    MessageBox.Show("Admin účet neexistuje.");
+                    return;
+                }
+
+                if (VerifyPassword(password, hash, salt))
+                {
+                    this.Hide();
+                    FormAdmin adminForm = new FormAdmin(connectionPassword);
+                    adminForm.ShowDialog();
+                    this.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Špatné heslo pro admina.");
+                }
+
+                return;
+            }
 
             try
             {
