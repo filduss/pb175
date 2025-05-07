@@ -113,7 +113,8 @@ namespace WindowsFormsApp1
                 $"Opravdu chcete odstranit pacienta „{patientName}“?",
                 "Potvrzení odstranění",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2
             );
 
             if (result == DialogResult.Yes)
@@ -157,11 +158,18 @@ namespace WindowsFormsApp1
             int selectedId = Convert.ToInt32(dataGridViewDoctors.SelectedRows[0].Cells["Id"].Value);
             string doctorName = dataGridViewDoctors.SelectedRows[0].Cells["Username"].Value.ToString();
 
+            if (doctorName == "admin")
+            {
+                MessageBox.Show("Administrátorský účet nelze odstranit.");
+                return;
+            }
+
             DialogResult result = MessageBox.Show(
                 $"Opravdu chcete odstranit lékaře „{doctorName}“?",
                 "Potvrzení odstranění",
                 MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
+                MessageBoxIcon.Warning,
+                MessageBoxDefaultButton.Button2
             );
 
             if (result == DialogResult.Yes)
@@ -192,6 +200,13 @@ namespace WindowsFormsApp1
                     }
                 }
             }
+        }
+
+        private void buttonAddDoctor_Click(object sender, EventArgs e)
+        {
+            FormAddDoctor addForm = new FormAddDoctor(connectionPassword);
+            addForm.FormClosed += (s, args) => LoadDoctors();
+            addForm.ShowDialog();
         }
     }
 }

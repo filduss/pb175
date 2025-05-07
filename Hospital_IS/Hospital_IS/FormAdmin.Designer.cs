@@ -37,6 +37,7 @@
             this.buttonDeleteDoctor = new System.Windows.Forms.Button();
             this.buttonSaveDoctors = new System.Windows.Forms.Button();
             this.dataGridViewDoctors = new System.Windows.Forms.DataGridView();
+            this.buttonAddDoctor = new System.Windows.Forms.Button();
             this.tabControlAdmin.SuspendLayout();
             this.tabPagePatients.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatients)).BeginInit();
@@ -51,7 +52,7 @@
             this.tabControlAdmin.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControlAdmin.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControlAdmin.Location = new System.Drawing.Point(0, 0);
-            this.tabControlAdmin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControlAdmin.Margin = new System.Windows.Forms.Padding(4);
             this.tabControlAdmin.Name = "tabControlAdmin";
             this.tabControlAdmin.SelectedIndex = 0;
             this.tabControlAdmin.Size = new System.Drawing.Size(1067, 554);
@@ -63,11 +64,11 @@
             this.tabPagePatients.Controls.Add(this.buttonSavePatients);
             this.tabPagePatients.Controls.Add(this.dataGridViewPatients);
             this.tabPagePatients.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabPagePatients.Location = new System.Drawing.Point(4, 27);
-            this.tabPagePatients.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPagePatients.Location = new System.Drawing.Point(4, 33);
+            this.tabPagePatients.Margin = new System.Windows.Forms.Padding(4);
             this.tabPagePatients.Name = "tabPagePatients";
-            this.tabPagePatients.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPagePatients.Size = new System.Drawing.Size(1059, 523);
+            this.tabPagePatients.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPagePatients.Size = new System.Drawing.Size(1059, 517);
             this.tabPagePatients.TabIndex = 0;
             this.tabPagePatients.Text = "Pacienti";
             this.tabPagePatients.UseVisualStyleBackColor = true;
@@ -76,7 +77,7 @@
             // 
             this.buttonDeletePatient.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDeletePatient.Location = new System.Drawing.Point(859, 66);
-            this.buttonDeletePatient.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDeletePatient.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDeletePatient.Name = "buttonDeletePatient";
             this.buttonDeletePatient.Size = new System.Drawing.Size(187, 52);
             this.buttonDeletePatient.TabIndex = 2;
@@ -88,7 +89,7 @@
             // 
             this.buttonSavePatients.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSavePatients.Location = new System.Drawing.Point(859, 7);
-            this.buttonSavePatients.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSavePatients.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSavePatients.Name = "buttonSavePatients";
             this.buttonSavePatients.Size = new System.Drawing.Size(187, 52);
             this.buttonSavePatients.TabIndex = 1;
@@ -103,22 +104,24 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewPatients.Location = new System.Drawing.Point(4, 4);
-            this.dataGridViewPatients.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewPatients.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewPatients.Name = "dataGridViewPatients";
+            this.dataGridViewPatients.RowHeadersWidth = 51;
             this.dataGridViewPatients.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewPatients.Size = new System.Drawing.Size(1048, 508);
             this.dataGridViewPatients.TabIndex = 0;
             // 
             // tabPageDoctors
             // 
+            this.tabPageDoctors.Controls.Add(this.buttonAddDoctor);
             this.tabPageDoctors.Controls.Add(this.buttonDeleteDoctor);
             this.tabPageDoctors.Controls.Add(this.buttonSaveDoctors);
             this.tabPageDoctors.Controls.Add(this.dataGridViewDoctors);
-            this.tabPageDoctors.Location = new System.Drawing.Point(4, 27);
-            this.tabPageDoctors.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPageDoctors.Location = new System.Drawing.Point(4, 33);
+            this.tabPageDoctors.Margin = new System.Windows.Forms.Padding(4);
             this.tabPageDoctors.Name = "tabPageDoctors";
-            this.tabPageDoctors.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPageDoctors.Size = new System.Drawing.Size(1059, 523);
+            this.tabPageDoctors.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPageDoctors.Size = new System.Drawing.Size(1059, 517);
             this.tabPageDoctors.TabIndex = 1;
             this.tabPageDoctors.Text = "Lékaři";
             this.tabPageDoctors.UseVisualStyleBackColor = true;
@@ -127,7 +130,7 @@
             // 
             this.buttonDeleteDoctor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonDeleteDoctor.Location = new System.Drawing.Point(859, 66);
-            this.buttonDeleteDoctor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDeleteDoctor.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDeleteDoctor.Name = "buttonDeleteDoctor";
             this.buttonDeleteDoctor.Size = new System.Drawing.Size(187, 52);
             this.buttonDeleteDoctor.TabIndex = 2;
@@ -139,7 +142,7 @@
             // 
             this.buttonSaveDoctors.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSaveDoctors.Location = new System.Drawing.Point(859, 7);
-            this.buttonSaveDoctors.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSaveDoctors.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSaveDoctors.Name = "buttonSaveDoctors";
             this.buttonSaveDoctors.Size = new System.Drawing.Size(187, 52);
             this.buttonSaveDoctors.TabIndex = 1;
@@ -154,11 +157,23 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewDoctors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDoctors.Location = new System.Drawing.Point(4, 4);
-            this.dataGridViewDoctors.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewDoctors.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewDoctors.Name = "dataGridViewDoctors";
+            this.dataGridViewDoctors.RowHeadersWidth = 51;
             this.dataGridViewDoctors.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewDoctors.Size = new System.Drawing.Size(1048, 508);
             this.dataGridViewDoctors.TabIndex = 0;
+            // 
+            // buttonAddDoctor
+            // 
+            this.buttonAddDoctor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAddDoctor.Location = new System.Drawing.Point(859, 125);
+            this.buttonAddDoctor.Name = "buttonAddDoctor";
+            this.buttonAddDoctor.Size = new System.Drawing.Size(187, 52);
+            this.buttonAddDoctor.TabIndex = 3;
+            this.buttonAddDoctor.Text = "Přidat lékaře";
+            this.buttonAddDoctor.UseVisualStyleBackColor = true;
+            this.buttonAddDoctor.Click += new System.EventHandler(this.buttonAddDoctor_Click);
             // 
             // FormAdmin
             // 
@@ -166,7 +181,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.tabControlAdmin);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormAdmin";
             this.Text = "Informační systém KnPO";
             this.Load += new System.EventHandler(this.FormAdmin_Load);
@@ -190,5 +205,6 @@
         private System.Windows.Forms.Button buttonSaveDoctors;
         private System.Windows.Forms.Button buttonDeletePatient;
         private System.Windows.Forms.Button buttonDeleteDoctor;
+        private System.Windows.Forms.Button buttonAddDoctor;
     }
 }

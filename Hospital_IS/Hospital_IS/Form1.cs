@@ -167,11 +167,11 @@ namespace WindowsFormsApp1
             string salt = null;
             string username = null;
 
-            if (userEmail.ToLower() == "filip.kolar92@seznam.cz")
+            if (userEmail.ToLower() == "admin")
             {
                 try
                 {
-                    (hash, salt, username) = GetInformation(connectionPassword, "filip.kolar92@seznam.cz", 0);
+                    (hash, salt, username) = GetInformation(connectionPassword, "admin", 0);
                 }
                 catch
                 {

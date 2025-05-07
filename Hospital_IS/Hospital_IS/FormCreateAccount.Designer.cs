@@ -47,18 +47,22 @@
             // 
             // textBoxName
             // 
+            this.textBoxName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxName.Location = new System.Drawing.Point(106, 51);
+            this.textBoxName.Location = new System.Drawing.Point(141, 63);
+            this.textBoxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxName.Name = "textBoxName";
-            this.textBoxName.Size = new System.Drawing.Size(147, 24);
+            this.textBoxName.Size = new System.Drawing.Size(195, 28);
             this.textBoxName.TabIndex = 0;
             // 
             // buttonCreate
             // 
+            this.buttonCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.buttonCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCreate.Location = new System.Drawing.Point(124, 309);
+            this.buttonCreate.Location = new System.Drawing.Point(165, 380);
+            this.buttonCreate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(116, 40);
+            this.buttonCreate.Size = new System.Drawing.Size(155, 49);
             this.buttonCreate.TabIndex = 1;
             this.buttonCreate.Text = "Vytvořit účet";
             this.buttonCreate.UseVisualStyleBackColor = true;
@@ -66,135 +70,153 @@
             // 
             // labelUsername
             // 
+            this.labelUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelUsername.AutoSize = true;
             this.labelUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsername.Location = new System.Drawing.Point(103, 31);
+            this.labelUsername.Location = new System.Drawing.Point(137, 38);
+            this.labelUsername.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(54, 17);
+            this.labelUsername.Size = new System.Drawing.Size(64, 20);
             this.labelUsername.TabIndex = 2;
             this.labelUsername.Text = "Jméno:";
             // 
             // labelEmail
             // 
+            this.labelEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelEmail.AutoSize = true;
             this.labelEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEmail.Location = new System.Drawing.Point(103, 137);
+            this.labelEmail.Location = new System.Drawing.Point(137, 169);
+            this.labelEmail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(46, 17);
+            this.labelEmail.Size = new System.Drawing.Size(56, 20);
             this.labelEmail.TabIndex = 4;
             this.labelEmail.Text = "Email:";
             // 
             // textBoxEmail
             // 
+            this.textBoxEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxEmail.Location = new System.Drawing.Point(106, 157);
+            this.textBoxEmail.Location = new System.Drawing.Point(141, 193);
+            this.textBoxEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(147, 24);
+            this.textBoxEmail.Size = new System.Drawing.Size(195, 28);
             this.textBoxEmail.TabIndex = 3;
             // 
             // labelPassword
             // 
+            this.labelPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelPassword.AutoSize = true;
             this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPassword.Location = new System.Drawing.Point(103, 193);
+            this.labelPassword.Location = new System.Drawing.Point(137, 238);
+            this.labelPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelPassword.Name = "labelPassword";
-            this.labelPassword.Size = new System.Drawing.Size(48, 17);
+            this.labelPassword.Size = new System.Drawing.Size(58, 20);
             this.labelPassword.TabIndex = 6;
             this.labelPassword.Text = "Heslo:";
             // 
             // textBoxPassword
             // 
+            this.textBoxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPassword.Location = new System.Drawing.Point(106, 213);
+            this.textBoxPassword.Location = new System.Drawing.Point(141, 262);
+            this.textBoxPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.PasswordChar = '*';
-            this.textBoxPassword.Size = new System.Drawing.Size(147, 24);
+            this.textBoxPassword.Size = new System.Drawing.Size(195, 28);
             this.textBoxPassword.TabIndex = 5;
             // 
             // labelRepeatPassword
             // 
+            this.labelRepeatPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelRepeatPassword.AutoSize = true;
             this.labelRepeatPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRepeatPassword.Location = new System.Drawing.Point(103, 246);
+            this.labelRepeatPassword.Location = new System.Drawing.Point(137, 303);
+            this.labelRepeatPassword.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRepeatPassword.Name = "labelRepeatPassword";
-            this.labelRepeatPassword.Size = new System.Drawing.Size(100, 17);
+            this.labelRepeatPassword.Size = new System.Drawing.Size(119, 20);
             this.labelRepeatPassword.TabIndex = 8;
             this.labelRepeatPassword.Text = "Heslo (znovu):";
             // 
             // textBoxRepeatPassword
             // 
+            this.textBoxRepeatPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxRepeatPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxRepeatPassword.Location = new System.Drawing.Point(106, 266);
+            this.textBoxRepeatPassword.Location = new System.Drawing.Point(141, 327);
+            this.textBoxRepeatPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxRepeatPassword.Name = "textBoxRepeatPassword";
             this.textBoxRepeatPassword.PasswordChar = '*';
-            this.textBoxRepeatPassword.Size = new System.Drawing.Size(147, 24);
+            this.textBoxRepeatPassword.Size = new System.Drawing.Size(195, 28);
             this.textBoxRepeatPassword.TabIndex = 7;
             this.textBoxRepeatPassword.TextChanged += new System.EventHandler(this.textBoxRepeatPassword_TextChanged);
             // 
             // labelMatch
             // 
             this.labelMatch.AutoSize = true;
-            this.labelMatch.Location = new System.Drawing.Point(226, 221);
+            this.labelMatch.Location = new System.Drawing.Point(301, 272);
+            this.labelMatch.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelMatch.Name = "labelMatch";
-            this.labelMatch.Size = new System.Drawing.Size(0, 13);
+            this.labelMatch.Size = new System.Drawing.Size(0, 16);
             this.labelMatch.TabIndex = 9;
             // 
             // comboBoxDay
             // 
+            this.comboBoxDay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.comboBoxDay.DropDownHeight = 200;
             this.comboBoxDay.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxDay.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxDay.FormattingEnabled = true;
             this.comboBoxDay.IntegralHeight = false;
-            this.comboBoxDay.Location = new System.Drawing.Point(106, 103);
-            this.comboBoxDay.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxDay.Location = new System.Drawing.Point(141, 127);
+            this.comboBoxDay.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxDay.MaxDropDownItems = 10;
             this.comboBoxDay.Name = "comboBoxDay";
-            this.comboBoxDay.Size = new System.Drawing.Size(44, 25);
+            this.comboBoxDay.Size = new System.Drawing.Size(57, 30);
             this.comboBoxDay.TabIndex = 10;
             // 
             // comboBoxMonth
             // 
+            this.comboBoxMonth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.comboBoxMonth.DropDownHeight = 200;
             this.comboBoxMonth.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxMonth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxMonth.FormattingEnabled = true;
             this.comboBoxMonth.IntegralHeight = false;
-            this.comboBoxMonth.ItemHeight = 17;
-            this.comboBoxMonth.Location = new System.Drawing.Point(153, 103);
-            this.comboBoxMonth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxMonth.ItemHeight = 22;
+            this.comboBoxMonth.Location = new System.Drawing.Point(204, 127);
+            this.comboBoxMonth.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxMonth.Name = "comboBoxMonth";
-            this.comboBoxMonth.Size = new System.Drawing.Size(40, 25);
+            this.comboBoxMonth.Size = new System.Drawing.Size(52, 30);
             this.comboBoxMonth.TabIndex = 11;
             // 
             // comboBoxYear
             // 
+            this.comboBoxYear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.comboBoxYear.DropDownHeight = 200;
             this.comboBoxYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxYear.FormattingEnabled = true;
             this.comboBoxYear.IntegralHeight = false;
-            this.comboBoxYear.Location = new System.Drawing.Point(196, 103);
-            this.comboBoxYear.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.comboBoxYear.Location = new System.Drawing.Point(261, 127);
+            this.comboBoxYear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxYear.Name = "comboBoxYear";
-            this.comboBoxYear.Size = new System.Drawing.Size(56, 25);
+            this.comboBoxYear.Size = new System.Drawing.Size(73, 30);
             this.comboBoxYear.TabIndex = 12;
             // 
             // labelDateOfBirth
             // 
+            this.labelDateOfBirth.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelDateOfBirth.AutoSize = true;
             this.labelDateOfBirth.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDateOfBirth.Location = new System.Drawing.Point(103, 84);
-            this.labelDateOfBirth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelDateOfBirth.Location = new System.Drawing.Point(137, 103);
             this.labelDateOfBirth.Name = "labelDateOfBirth";
-            this.labelDateOfBirth.Size = new System.Drawing.Size(112, 17);
+            this.labelDateOfBirth.Size = new System.Drawing.Size(133, 20);
             this.labelDateOfBirth.TabIndex = 13;
             this.labelDateOfBirth.Text = "Datum narození:";
             // 
             // FormCreateAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(356, 377);
+            this.ClientSize = new System.Drawing.Size(475, 464);
             this.Controls.Add(this.labelDateOfBirth);
             this.Controls.Add(this.comboBoxYear);
             this.Controls.Add(this.comboBoxMonth);
@@ -210,6 +232,7 @@
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.textBoxName);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FormCreateAccount";
             this.Text = "Informační systém KnPO";
             this.Load += new System.EventHandler(this.FormCreateAccount_Load);
