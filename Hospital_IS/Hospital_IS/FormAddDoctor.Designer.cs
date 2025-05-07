@@ -31,7 +31,7 @@
             this.textBoxDoctorName = new System.Windows.Forms.TextBox();
             this.labelDoctorName = new System.Windows.Forms.Label();
             this.textBoxDoctorEmail = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxDoctorPassword = new System.Windows.Forms.TextBox();
             this.labelDoctorEmail = new System.Windows.Forms.Label();
             this.labelDoctorPassword = new System.Windows.Forms.Label();
             this.buttonCreateDoctor = new System.Windows.Forms.Button();
@@ -66,14 +66,15 @@
             this.textBoxDoctorEmail.Size = new System.Drawing.Size(195, 28);
             this.textBoxDoctorEmail.TabIndex = 2;
             // 
-            // textBox1
+            // textBoxDoctorPassword
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(76, 236);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 28);
-            this.textBox1.TabIndex = 3;
+            this.textBoxDoctorPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.textBoxDoctorPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxDoctorPassword.Location = new System.Drawing.Point(76, 236);
+            this.textBoxDoctorPassword.Name = "textBoxDoctorPassword";
+            this.textBoxDoctorPassword.PasswordChar = '*';
+            this.textBoxDoctorPassword.Size = new System.Drawing.Size(195, 28);
+            this.textBoxDoctorPassword.TabIndex = 5;
             // 
             // labelDoctorEmail
             // 
@@ -99,7 +100,7 @@
             // 
             // buttonCreateDoctor
             // 
-            this.buttonCreateDoctor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.buttonCreateDoctor.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonCreateDoctor.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreateDoctor.Location = new System.Drawing.Point(96, 294);
             this.buttonCreateDoctor.Name = "buttonCreateDoctor";
@@ -107,6 +108,7 @@
             this.buttonCreateDoctor.TabIndex = 6;
             this.buttonCreateDoctor.Text = "Vytvořit účet";
             this.buttonCreateDoctor.UseVisualStyleBackColor = true;
+            this.buttonCreateDoctor.Click += new System.EventHandler(this.buttonCreateDoctor_Click);
             // 
             // FormAddDoctor
             // 
@@ -116,12 +118,12 @@
             this.Controls.Add(this.buttonCreateDoctor);
             this.Controls.Add(this.labelDoctorPassword);
             this.Controls.Add(this.labelDoctorEmail);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxDoctorPassword);
             this.Controls.Add(this.textBoxDoctorEmail);
             this.Controls.Add(this.labelDoctorName);
             this.Controls.Add(this.textBoxDoctorName);
             this.Name = "FormAddDoctor";
-            this.Text = "FormAddDoctor";
+            this.Text = "Informační systém KnPO";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -132,7 +134,7 @@
         private System.Windows.Forms.TextBox textBoxDoctorName;
         private System.Windows.Forms.Label labelDoctorName;
         private System.Windows.Forms.TextBox textBoxDoctorEmail;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxDoctorPassword;
         private System.Windows.Forms.Label labelDoctorEmail;
         private System.Windows.Forms.Label labelDoctorPassword;
         private System.Windows.Forms.Button buttonCreateDoctor;

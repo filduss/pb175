@@ -36,6 +36,7 @@
             // 
             // flowLayoutPanelAppointments
             // 
+            this.flowLayoutPanelAppointments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.flowLayoutPanelAppointments.AutoScroll = true;
             this.flowLayoutPanelAppointments.Location = new System.Drawing.Point(50, 105);
             this.flowLayoutPanelAppointments.Name = "flowLayoutPanelAppointments";
@@ -44,16 +45,18 @@
             // 
             // buttonSearch
             // 
+            this.buttonSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.buttonSearch.Location = new System.Drawing.Point(625, 69);
             this.buttonSearch.Name = "buttonSearch";
             this.buttonSearch.Size = new System.Drawing.Size(123, 30);
             this.buttonSearch.TabIndex = 2;
             this.buttonSearch.Text = "Hledat";
-            this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.UseVisualStyleBackColor = false;
             this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(307, 19);
@@ -64,6 +67,7 @@
             // 
             // comboBoxSearch
             // 
+            this.comboBoxSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.comboBoxSearch.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBoxSearch.FormattingEnabled = true;

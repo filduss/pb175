@@ -37,18 +37,20 @@
             // 
             // listBoxRecords
             // 
+            this.listBoxRecords.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.listBoxRecords.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxRecords.FormattingEnabled = true;
-            this.listBoxRecords.ItemHeight = 19;
+            this.listBoxRecords.ItemHeight = 25;
             this.listBoxRecords.Location = new System.Drawing.Point(12, 61);
             this.listBoxRecords.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.listBoxRecords.Name = "listBoxRecords";
-            this.listBoxRecords.Size = new System.Drawing.Size(242, 498);
+            this.listBoxRecords.Size = new System.Drawing.Size(242, 504);
             this.listBoxRecords.TabIndex = 0;
             this.listBoxRecords.SelectedIndexChanged += new System.EventHandler(this.listBoxRecords_SelectedIndexChanged);
             // 
             // textBoxDetail
             // 
+            this.textBoxDetail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxDetail.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxDetail.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxDetail.Location = new System.Drawing.Point(273, 96);
@@ -60,27 +62,29 @@
             // 
             // labelTitle
             // 
+            this.labelTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(266, 9);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(247, 30);
+            this.labelTitle.Size = new System.Drawing.Size(315, 38);
             this.labelTitle.TabIndex = 2;
             this.labelTitle.Text = "Zdravotní karta pacienta";
             // 
             // textBoxRecType
             // 
+            this.textBoxRecType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.textBoxRecType.BackColor = System.Drawing.SystemColors.Window;
             this.textBoxRecType.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRecType.Location = new System.Drawing.Point(273, 61);
             this.textBoxRecType.Name = "textBoxRecType";
             this.textBoxRecType.ReadOnly = true;
-            this.textBoxRecType.Size = new System.Drawing.Size(509, 29);
+            this.textBoxRecType.Size = new System.Drawing.Size(509, 34);
             this.textBoxRecType.TabIndex = 3;
             // 
             // FormMedicalRecords
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(795, 581);
             this.Controls.Add(this.textBoxRecType);
