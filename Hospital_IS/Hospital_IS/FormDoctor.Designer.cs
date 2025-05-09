@@ -159,6 +159,8 @@
             // 
             // panelCreate
             // 
+            this.panelCreate.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panelCreate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelCreate.Controls.Add(this.labelTime);
             this.panelCreate.Controls.Add(this.comboBoxTimePicker);
             this.panelCreate.Controls.Add(this.labelChosenPatient);
@@ -169,14 +171,14 @@
             this.panelCreate.Controls.Add(this.labelChoosePatient);
             this.panelCreate.Location = new System.Drawing.Point(344, 16);
             this.panelCreate.Name = "panelCreate";
-            this.panelCreate.Size = new System.Drawing.Size(444, 277);
+            this.panelCreate.Size = new System.Drawing.Size(444, 210);
             this.panelCreate.TabIndex = 8;
             // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
             this.labelTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelTime.Location = new System.Drawing.Point(11, 133);
+            this.labelTime.Location = new System.Drawing.Point(30, 135);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(87, 17);
             this.labelTime.TabIndex = 8;
@@ -185,7 +187,7 @@
             // comboBoxTimePicker
             // 
             this.comboBoxTimePicker.FormattingEnabled = true;
-            this.comboBoxTimePicker.Location = new System.Drawing.Point(14, 157);
+            this.comboBoxTimePicker.Location = new System.Drawing.Point(33, 159);
             this.comboBoxTimePicker.Name = "comboBoxTimePicker";
             this.comboBoxTimePicker.Size = new System.Drawing.Size(84, 21);
             this.comboBoxTimePicker.TabIndex = 7;
@@ -194,7 +196,7 @@
             // 
             this.labelChosenPatient.AutoSize = true;
             this.labelChosenPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelChosenPatient.Location = new System.Drawing.Point(12, 45);
+            this.labelChosenPatient.Location = new System.Drawing.Point(31, 47);
             this.labelChosenPatient.Name = "labelChosenPatient";
             this.labelChosenPatient.Size = new System.Drawing.Size(79, 25);
             this.labelChosenPatient.TabIndex = 6;
@@ -202,9 +204,9 @@
             // 
             // buttonSend
             // 
-            this.buttonSend.Location = new System.Drawing.Point(105, 133);
+            this.buttonSend.Location = new System.Drawing.Point(124, 135);
             this.buttonSend.Name = "buttonSend";
-            this.buttonSend.Size = new System.Drawing.Size(124, 41);
+            this.buttonSend.Size = new System.Drawing.Size(124, 45);
             this.buttonSend.TabIndex = 5;
             this.buttonSend.Text = "Odeslat";
             this.buttonSend.UseVisualStyleBackColor = true;
@@ -213,7 +215,7 @@
             // comboBoxType
             // 
             this.comboBoxType.FormattingEnabled = true;
-            this.comboBoxType.Location = new System.Drawing.Point(14, 99);
+            this.comboBoxType.Location = new System.Drawing.Point(33, 101);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(217, 21);
             this.comboBoxType.TabIndex = 4;
@@ -222,7 +224,7 @@
             // 
             this.labelType.AutoSize = true;
             this.labelType.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelType.Location = new System.Drawing.Point(14, 79);
+            this.labelType.Location = new System.Drawing.Point(33, 81);
             this.labelType.Name = "labelType";
             this.labelType.Size = new System.Drawing.Size(122, 17);
             this.labelType.TabIndex = 3;
@@ -230,7 +232,7 @@
             // 
             // monthCalendarExamDate
             // 
-            this.monthCalendarExamDate.Location = new System.Drawing.Point(243, 9);
+            this.monthCalendarExamDate.Location = new System.Drawing.Point(262, 18);
             this.monthCalendarExamDate.MaxSelectionCount = 1;
             this.monthCalendarExamDate.Name = "monthCalendarExamDate";
             this.monthCalendarExamDate.TabIndex = 2;
@@ -239,7 +241,7 @@
             // 
             this.labelChoosePatient.AutoSize = true;
             this.labelChoosePatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelChoosePatient.Location = new System.Drawing.Point(14, 18);
+            this.labelChoosePatient.Location = new System.Drawing.Point(33, 20);
             this.labelChoosePatient.Name = "labelChoosePatient";
             this.labelChoosePatient.Size = new System.Drawing.Size(114, 17);
             this.labelChoosePatient.TabIndex = 1;

@@ -129,6 +129,11 @@ namespace WindowsFormsApp1
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
+            if (comboBoxSearch.SelectedIndex == 0)
+            {
+                LoadAppointments();
+                return;
+            }
             string filter = comboBoxSearch.SelectedItem?.ToString()?.Trim().ToLower();
             LoadAppointments(filter);
         }

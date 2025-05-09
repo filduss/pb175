@@ -450,6 +450,7 @@ namespace WindowsFormsApp1
             newAppointments.Add(appointment);
             MessageBox.Show("Schůzka úspěšně vytvořena", "Úspěch", MessageBoxButtons.OK, MessageBoxIcon.Information);
             comboBoxType.SelectedIndex = -1;
+            listBoxPacients.SelectedIndex = -1;
             comboBoxTimePicker.SelectedIndex = -1;
             labelChosenPatient.Text = "ŽÁDNÝ";
         }

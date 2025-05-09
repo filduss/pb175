@@ -38,17 +38,19 @@
             // 
             this.flowLayoutPanelAppointments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.flowLayoutPanelAppointments.AutoScroll = true;
-            this.flowLayoutPanelAppointments.Location = new System.Drawing.Point(50, 105);
+            this.flowLayoutPanelAppointments.Location = new System.Drawing.Point(38, 85);
+            this.flowLayoutPanelAppointments.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanelAppointments.Name = "flowLayoutPanelAppointments";
-            this.flowLayoutPanelAppointments.Size = new System.Drawing.Size(698, 333);
+            this.flowLayoutPanelAppointments.Size = new System.Drawing.Size(524, 271);
             this.flowLayoutPanelAppointments.TabIndex = 0;
             // 
             // buttonSearch
             // 
             this.buttonSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.buttonSearch.Location = new System.Drawing.Point(625, 69);
+            this.buttonSearch.Location = new System.Drawing.Point(469, 56);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(2);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(123, 30);
+            this.buttonSearch.Size = new System.Drawing.Size(92, 24);
             this.buttonSearch.TabIndex = 2;
             this.buttonSearch.Text = "Hledat";
             this.buttonSearch.UseVisualStyleBackColor = false;
@@ -59,9 +61,10 @@
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(307, 19);
+            this.label1.Location = new System.Drawing.Point(230, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 38);
+            this.label1.Size = new System.Drawing.Size(144, 30);
             this.label1.TabIndex = 3;
             this.label1.Text = "Moje schůzky";
             // 
@@ -73,6 +76,7 @@
             this.comboBoxSearch.FormattingEnabled = true;
             this.comboBoxSearch.IntegralHeight = false;
             this.comboBoxSearch.Items.AddRange(new object[] {
+            "ZOBRAZIT VŠE",
             "Anamnéza a fyzikální vyšetření  ",
             "Měření krevního tlaku  ",
             "Měření teploty  ",
@@ -118,21 +122,23 @@
             "Uroflowmetrie  ",
             "Cystoskopie  ",
             "PSA test (prostata)"});
-            this.comboBoxSearch.Location = new System.Drawing.Point(50, 69);
+            this.comboBoxSearch.Location = new System.Drawing.Point(38, 56);
+            this.comboBoxSearch.Margin = new System.Windows.Forms.Padding(2);
             this.comboBoxSearch.MaxDropDownItems = 15;
             this.comboBoxSearch.Name = "comboBoxSearch";
-            this.comboBoxSearch.Size = new System.Drawing.Size(569, 30);
+            this.comboBoxSearch.Size = new System.Drawing.Size(428, 25);
             this.comboBoxSearch.TabIndex = 4;
             // 
             // FormDisplayAppointments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.comboBoxSearch);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.flowLayoutPanelAppointments);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDisplayAppointments";
             this.Text = "FormDisplayAppointments";
             this.Load += new System.EventHandler(this.FormDisplayAppointments_Load);

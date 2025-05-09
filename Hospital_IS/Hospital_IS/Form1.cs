@@ -200,8 +200,8 @@ namespace WindowsFormsApp1
             }
             catch (Exception ea)
             {
-                MessageBox.Show(ea.Message);
-                //MessageBox.Show("Nespravné údaje");
+                //MessageBox.Show(ea.Message);
+                MessageBox.Show("Nespravné údaje!");
                 return;
             }
 
