@@ -375,15 +375,12 @@ namespace WindowsFormsApp1
 
         private void enqueueAppointments(List<Appointment> appointments)
         {
-
-
             List<System.Windows.Forms.CheckBox> checkBoxes = new List<System.Windows.Forms.CheckBox>{ checkBoxToday1Type, checkBoxToday2Type, checkBoxToday3Type, checkBoxToday4Type, checkBoxToday5Type};
 
             DateTime target = DateTime.Today;
             for (int i = 0; i < 5; i++)
             {
                 List<Appointment> currentQueue = appointmentQueues[i];
-                target = target.AddDays(1);
                 dateLabels[i].Text = $"{target.Day}.{target.Month}.{target.Year}";
                 foreach (Appointment elem in appointments)
                 {
@@ -401,6 +398,8 @@ namespace WindowsFormsApp1
                 {
                     target = target.AddDays(2);
                 }
+                
+                target = target.AddDays(1);
             }
         }
 
