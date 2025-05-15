@@ -297,6 +297,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_9AB00B6843954706A3FF1BC71C02D9CE"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_A63DA79E2A4C666F7F87A8DA3B97243E"
         "OwnerKey" = "8:_4276B8CA356F69429CBDE40F500843DD"
         "MsmSig" = "8:_UNDEFINED"
@@ -561,12 +567,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F13F6C0A68284E40A7ED0EC2CEE326ED"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_FD639FADFDEC94A761FC8374DA0ED46D"
         "OwnerKey" = "8:_D4C492B6A7279A00834483C294D82060"
         "MsmSig" = "8:_UNDEFINED"
@@ -782,6 +782,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
         "Release"
@@ -806,6 +814,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -1332,6 +1348,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_9AB00B6843954706A3FF1BC71C02D9CE"
+            {
+            "SourcePath" = "8:..\\..\\..\\..\\favicon.ico"
+            "TargetName" = "8:favicon.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_003E160585504D398E630EBF3D62505A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A63DA79E2A4C666F7F87A8DA3B97243E"
             {
             "AssemblyRegister" = "3:1"
@@ -1642,26 +1678,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F13F6C0A68284E40A7ED0EC2CEE326ED"
-            {
-            "SourcePath" = "8:..\\..\\..\\..\\hospital-svgrepo-com.ico"
-            "TargetName" = "8:hospital-svgrepo-com.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_003E160585504D398E630EBF3D62505A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_FD639FADFDEC94A761FC8374DA0ED46D"
             {
             "AssemblyRegister" = "3:1"
@@ -1912,7 +1928,7 @@
             "Target" = "8:_96418691D95A4CACAB51799BBD24868A"
             "Folder" = "8:_1E9FD351DFF24C60B10C520902B29F9D"
             "WorkingFolder" = "8:_003E160585504D398E630EBF3D62505A"
-            "Icon" = "8:_F13F6C0A68284E40A7ED0EC2CEE326ED"
+            "Icon" = "8:_9AB00B6843954706A3FF1BC71C02D9CE"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_E00BBFFE3C374472852DFDB147437448"
@@ -1926,7 +1942,7 @@
             "Target" = "8:_96418691D95A4CACAB51799BBD24868A"
             "Folder" = "8:_A0258F3FC88041F5965CE47BC496FC46"
             "WorkingFolder" = "8:_003E160585504D398E630EBF3D62505A"
-            "Icon" = "8:_F13F6C0A68284E40A7ED0EC2CEE326ED"
+            "Icon" = "8:_9AB00B6843954706A3FF1BC71C02D9CE"
             "Feature" = "8:"
             }
         }
@@ -2330,7 +2346,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_96418691D95A4CACAB51799BBD24868A"
             {
-            "SourcePath" = "8:..\\Hospital_IS\\obj\\Debug\\WindowsFormsApp1.exe"
+            "SourcePath" = "8:"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_003E160585504D398E630EBF3D62505A"
