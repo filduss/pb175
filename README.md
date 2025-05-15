@@ -1,5 +1,5 @@
 # Hospital Information System
-
+[Installation manual](./INSTALL.md)
 ## PB175 Group Project
 
 ### Team Members
