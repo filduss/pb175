@@ -24,6 +24,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
         string connectionPassword = null;
+
         private static (string hash, string salt, string username) GetInformation(string connectionPassword, string userEmail, int userType)
         {
             string passwordHash = string.Empty;
@@ -95,21 +96,22 @@ namespace WindowsFormsApp1
 
             return Convert.ToBase64String(hashBytes) == hash;
         }
-        public static async Task<string> RetrieveSecret()
+        public static string RetrieveSecret()
         {
-            string databasePassword = "";
-            string keyVaultUrl = "https://databasepb175vault.vault.azure.net/";
-            try
-            {
-                var client = new SecretClient(new Uri(keyVaultUrl), new DefaultAzureCredential());
-                KeyVaultSecret secret = await client.GetSecretAsync("password");
-                databasePassword = secret.Value;
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error retrieving secret: {ex.Message} \n PLEASE RESTART THE APPLICATION");
-            }
-            return databasePassword;
+            string encrypted = "YY8EOaPPstE + cAl / mST0pA ==:/ qeyh98GzeZbH9bKv3Yeqw ==";
+            string encryptionKey = "Ek30v93=fk39KE%4jg";
+            var parts = encrypted.Split(':');
+            byte[] iv = Convert.FromBase64String(parts[0]);
+            byte[] encryptedBytes = Convert.FromBase64String(parts[1]);
+
+            var aes = Aes.Create();
+            aes.Key = SHA256.Create().ComputeHash(Encoding.UTF8.GetBytes(encryptionKey));
+            aes.IV = iv;
+
+            var decryptor = aes.CreateDecryptor();
+            byte[] decryptedBytes = decryptor.TransformFinalBlock(encryptedBytes, 0, encryptedBytes.Length);
+
+            return Encoding.UTF8.GetString(decryptedBytes);
         }
 
         private static int GetUserId(string connectionPassword, string userEmail, int userType)
@@ -144,7 +146,6 @@ namespace WindowsFormsApp1
 
             return userId;
         }
-
 
         private void buttonLogin_Click(object sender, EventArgs e)
         {
@@ -198,9 +199,8 @@ namespace WindowsFormsApp1
             {
                 (hash, salt, username) = GetInformation(connectionPassword, userEmail, comboBoxRole.SelectedIndex);
             }
-            catch (Exception ea)
+            catch
             {
-                //MessageBox.Show(ea.Message);
                 MessageBox.Show("Nespravné údaje!");
                 return;
             }
@@ -248,11 +248,11 @@ namespace WindowsFormsApp1
             }
         }
 
-        private async void Form1_Shown(object sender, EventArgs e)
+        private void Form1_Shown(object sender, EventArgs e)
         {
             comboBoxRole.DropDownStyle = ComboBoxStyle.DropDownList;
             buttonLogin.Enabled = false;
-            connectionPassword = await RetrieveSecret();
+            connectionPassword = RetrieveSecret();
             buttonLogin.Enabled = true;
         }
 
