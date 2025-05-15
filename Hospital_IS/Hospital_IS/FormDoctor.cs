@@ -407,7 +407,6 @@ namespace WindowsFormsApp1
         {
             if (listBoxPacients.SelectedIndex == -1)
             {
-                labelChoosePatient.Text = "Žádný";
                 return;
             }
             labelChosenPatient.Text = pacients[listBoxPacients.SelectedIndex].Name;
