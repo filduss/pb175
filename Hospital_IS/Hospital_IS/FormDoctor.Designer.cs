@@ -171,7 +171,7 @@
             this.panelCreate.Controls.Add(this.labelChoosePatient);
             this.panelCreate.Location = new System.Drawing.Point(344, 16);
             this.panelCreate.Name = "panelCreate";
-            this.panelCreate.Size = new System.Drawing.Size(444, 210);
+            this.panelCreate.Size = new System.Drawing.Size(505, 210);
             this.panelCreate.TabIndex = 8;
             // 
             // labelTime
@@ -232,6 +232,9 @@
             // 
             // monthCalendarExamDate
             // 
+            this.monthCalendarExamDate.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.monthCalendarExamDate.Location = new System.Drawing.Point(262, 18);
             this.monthCalendarExamDate.MaxSelectionCount = 1;
             this.monthCalendarExamDate.Name = "monthCalendarExamDate";
@@ -255,10 +258,10 @@
             this.panelDisplay.Controls.Add(this.panelToday3);
             this.panelDisplay.Controls.Add(this.panelToday4);
             this.panelDisplay.Controls.Add(this.panelToday5);
-            this.panelDisplay.Location = new System.Drawing.Point(344, 2);
+            this.panelDisplay.Location = new System.Drawing.Point(344, 3);
             this.panelDisplay.Margin = new System.Windows.Forms.Padding(2);
             this.panelDisplay.Name = "panelDisplay";
-            this.panelDisplay.Size = new System.Drawing.Size(444, 436);
+            this.panelDisplay.Size = new System.Drawing.Size(505, 436);
             this.panelDisplay.TabIndex = 9;
             // 
             // panelToday1
@@ -271,7 +274,7 @@
             this.panelToday1.Location = new System.Drawing.Point(2, 2);
             this.panelToday1.Margin = new System.Windows.Forms.Padding(2);
             this.panelToday1.Name = "panelToday1";
-            this.panelToday1.Size = new System.Drawing.Size(440, 84);
+            this.panelToday1.Size = new System.Drawing.Size(500, 84);
             this.panelToday1.TabIndex = 0;
             // 
             // labelAppLeft1
@@ -306,7 +309,7 @@
             this.panelToday1Next.Location = new System.Drawing.Point(102, 9);
             this.panelToday1Next.Margin = new System.Windows.Forms.Padding(2);
             this.panelToday1Next.Name = "panelToday1Next";
-            this.panelToday1Next.Size = new System.Drawing.Size(327, 61);
+            this.panelToday1Next.Size = new System.Drawing.Size(382, 61);
             this.panelToday1Next.TabIndex = 12;
             // 
             // label3
@@ -363,7 +366,7 @@
             this.panelToday2.Location = new System.Drawing.Point(2, 90);
             this.panelToday2.Margin = new System.Windows.Forms.Padding(2);
             this.panelToday2.Name = "panelToday2";
-            this.panelToday2.Size = new System.Drawing.Size(440, 84);
+            this.panelToday2.Size = new System.Drawing.Size(500, 84);
             this.panelToday2.TabIndex = 16;
             // 
             // labelAppLeft2
@@ -398,7 +401,7 @@
             this.panelToday2Next.Location = new System.Drawing.Point(102, 9);
             this.panelToday2Next.Margin = new System.Windows.Forms.Padding(2);
             this.panelToday2Next.Name = "panelToday2Next";
-            this.panelToday2Next.Size = new System.Drawing.Size(327, 61);
+            this.panelToday2Next.Size = new System.Drawing.Size(382, 61);
             this.panelToday2Next.TabIndex = 12;
             // 
             // label12
@@ -455,7 +458,7 @@
             this.panelToday3.Location = new System.Drawing.Point(2, 178);
             this.panelToday3.Margin = new System.Windows.Forms.Padding(2);
             this.panelToday3.Name = "panelToday3";
-            this.panelToday3.Size = new System.Drawing.Size(440, 84);
+            this.panelToday3.Size = new System.Drawing.Size(500, 84);
             this.panelToday3.TabIndex = 16;
             // 
             // labelAppLeft3
@@ -490,7 +493,7 @@
             this.panelToday3Next.Location = new System.Drawing.Point(102, 9);
             this.panelToday3Next.Margin = new System.Windows.Forms.Padding(2);
             this.panelToday3Next.Name = "panelToday3Next";
-            this.panelToday3Next.Size = new System.Drawing.Size(327, 61);
+            this.panelToday3Next.Size = new System.Drawing.Size(382, 61);
             this.panelToday3Next.TabIndex = 12;
             // 
             // label19
@@ -547,7 +550,7 @@
             this.panelToday4.Location = new System.Drawing.Point(2, 266);
             this.panelToday4.Margin = new System.Windows.Forms.Padding(2);
             this.panelToday4.Name = "panelToday4";
-            this.panelToday4.Size = new System.Drawing.Size(440, 84);
+            this.panelToday4.Size = new System.Drawing.Size(500, 84);
             this.panelToday4.TabIndex = 17;
             // 
             // labelAppLeft4
@@ -582,7 +585,7 @@
             this.panelToday4Next.Location = new System.Drawing.Point(102, 8);
             this.panelToday4Next.Margin = new System.Windows.Forms.Padding(2);
             this.panelToday4Next.Name = "panelToday4Next";
-            this.panelToday4Next.Size = new System.Drawing.Size(327, 61);
+            this.panelToday4Next.Size = new System.Drawing.Size(382, 61);
             this.panelToday4Next.TabIndex = 12;
             // 
             // label26
@@ -639,7 +642,7 @@
             this.panelToday5.Location = new System.Drawing.Point(2, 354);
             this.panelToday5.Margin = new System.Windows.Forms.Padding(2);
             this.panelToday5.Name = "panelToday5";
-            this.panelToday5.Size = new System.Drawing.Size(440, 82);
+            this.panelToday5.Size = new System.Drawing.Size(500, 82);
             this.panelToday5.TabIndex = 18;
             // 
             // labelAppLeft5
@@ -674,7 +677,7 @@
             this.panelToday5Next.Location = new System.Drawing.Point(102, 9);
             this.panelToday5Next.Margin = new System.Windows.Forms.Padding(2);
             this.panelToday5Next.Name = "panelToday5Next";
-            this.panelToday5Next.Size = new System.Drawing.Size(327, 61);
+            this.panelToday5Next.Size = new System.Drawing.Size(382, 61);
             this.panelToday5Next.TabIndex = 12;
             // 
             // label33
@@ -725,7 +728,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(858, 450);
             this.Controls.Add(this.panelDisplay);
             this.Controls.Add(this.panelCreate);
             this.Controls.Add(this.buttonCreateAppointment);

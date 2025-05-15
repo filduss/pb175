@@ -405,6 +405,11 @@ namespace WindowsFormsApp1
 
         private void listBoxPacients_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (listBoxPacients.SelectedIndex == -1)
+            {
+                labelChoosePatient.Text = "Žádný";
+                return;
+            }
             labelChosenPatient.Text = pacients[listBoxPacients.SelectedIndex].Name;
         }
 
