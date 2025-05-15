@@ -1,5 +1,4 @@
 # Hospital Information System
-[Installation manual](./INSTALL.md)
 ## PB175 Group Project
 
 ### Team Members
@@ -20,7 +19,5 @@ This project is an **Information System for a Hospital**, developed as part of t
 ### Design and Planning
 Our project’s design and workflow can be viewed on our Miro sketchboard: [Project Sketchboard](https://miro.com/app/board/uXjVISL1eTo=/?share_link_id=710593934493)
 
-### How to Run
-1. Clone this repository.
-2. Open the project in Visual Studio.
-3. Build and run the solution.
+### Installation manual
+View the [Installation manual](./INSTALL.md) for detailed download guide
