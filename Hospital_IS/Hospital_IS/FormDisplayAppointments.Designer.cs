@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDisplayAppointments));
             this.flowLayoutPanelAppointments = new System.Windows.Forms.FlowLayoutPanel();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -138,9 +139,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.flowLayoutPanelAppointments);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormDisplayAppointments";
-            this.Text = "FormDisplayAppointments";
+            this.Text = "Informační systém KnPO";
             this.Load += new System.EventHandler(this.FormDisplayAppointments_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
