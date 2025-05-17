@@ -56,6 +56,12 @@ namespace WindowsFormsApp1
                 return;
             }
             
+            if (!textBoxEmail.Text.Contains("@") || !textBoxEmail.Text.Contains("."))
+            {
+                MessageBox.Show("Email není ve správné formě (chybí mu '@' nebo '.'");
+                return;
+            }
+
             if (textBoxEmail.Text == "")
             {
                 MessageBox.Show("Zadajte email");
