@@ -50,7 +50,13 @@ namespace WindowsFormsApp1
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            if (labelMatch.Text != "" || textBoxPassword.Text == "" || textBoxRepeatPassword.Text == "")
+            if (labelMatch.Text != "")
+            {
+                MessageBox.Show("Hesla se neshodují");
+                return;
+            }
+
+            if (textBoxPassword.Text == "" || textBoxRepeatPassword.Text == "")
             {
                 MessageBox.Show("Heslo je povinné");
                 return;
