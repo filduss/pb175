@@ -5,6 +5,9 @@
 - **Filip Kolář**
 - **Katarína Balušeskulová**
 
+## Important
+If you are running into a problem with connecting to the database. It is caused by MS Azure. It automatically puts the database to sleep mode and by your action the database is woken up and works properly.
+
 ### Project Overview
 This project is an **Information System for a Hospital**, developed as part of the **PB175** course. It is built using **C# Windows Forms Application**, aiming to streamline hospital operations such as managing patient data, appointments, and staff information.
 
